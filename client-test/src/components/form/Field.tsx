@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '@commonforge/ui';
+import { cn } from '@tally-ui/ui';
 
 // LOCAL — Field wrapper provides label + error/help text + accessible
 // linkage (htmlFor / aria-describedby). Used together with TextInput / Select.

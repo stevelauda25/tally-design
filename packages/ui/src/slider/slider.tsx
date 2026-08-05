@@ -37,19 +37,19 @@ const HANDLE_SHADOW_CLASS =
  * range mode can each be dragged.
  */
 const SLIDER_CSS = `
-.sparc-slider-input {
+.tally-slider-input {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
   background: transparent;
   pointer-events: none;
 }
-.sparc-slider-input::-webkit-slider-runnable-track {
+.tally-slider-input::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   background: transparent;
   border: none;
 }
-.sparc-slider-input::-webkit-slider-thumb {
+.tally-slider-input::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   pointer-events: auto;
@@ -61,11 +61,11 @@ const SLIDER_CSS = `
   box-shadow: ${HANDLE_SHADOW};
   cursor: pointer;
 }
-.sparc-slider-input::-moz-range-track {
+.tally-slider-input::-moz-range-track {
   background: transparent;
   border: none;
 }
-.sparc-slider-input::-moz-range-thumb {
+.tally-slider-input::-moz-range-thumb {
   pointer-events: auto;
   height: 10px;
   width: 10px;
@@ -145,7 +145,7 @@ export function Slider({
                 : setStart(Number(event.target.value))
             }
             aria-label={variant === "range" ? `${label} maximum` : label}
-            className="sparc-slider-input absolute inset-0 z-10 h-[10px] w-full"
+            className="tally-slider-input absolute inset-0 z-10 h-[10px] w-full"
           />
         )}
         {variant === "range" && (
@@ -156,7 +156,7 @@ export function Slider({
             value={start}
             onChange={(event) => setStart(Number(event.target.value))}
             aria-label={`${label} minimum`}
-            className="sparc-slider-input absolute inset-0 z-20 h-[10px] w-full"
+            className="tally-slider-input absolute inset-0 z-20 h-[10px] w-full"
           />
         )}
       </div>

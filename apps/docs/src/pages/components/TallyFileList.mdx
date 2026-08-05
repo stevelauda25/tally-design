@@ -1,0 +1,39 @@
+import { FileList } from '@tally-ui/ui';
+
+<PageHeader
+  title="Tally File List"
+  description="File upload row with four states — ready, uploading, uploaded, and error."
+/>
+
+## States
+
+<PreviewCard>
+  <div className="flex flex-col gap-5">
+    <FileList
+      status="ready"
+      name="selected-file.pdf"
+      size="1.68 MB"
+      onRemove={() => {}}
+    />
+    <FileList
+      status="uploading"
+      name="selected-file.pdf"
+      size="1.68 MB"
+      progress={68}
+      onRemove={() => {}}
+    />
+    <FileList
+      status="uploaded"
+      name="selected-file.pdf"
+      size="1.68 MB"
+      onRemove={() => {}}
+    />
+    <FileList
+      status="error"
+      name="selected-file.pdf"
+      size="1.68 MB"
+      onRetry={() => {}}
+      onRemove={() => {}}
+    />
+  </div>
+</PreviewCard>

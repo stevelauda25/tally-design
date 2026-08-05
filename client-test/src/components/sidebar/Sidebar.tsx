@@ -1,4 +1,4 @@
-import { Tooltip, Button } from '@commonforge/ui';
+import { Tooltip, Button } from '@tally-ui/ui';
 import {
   BarChart3,
   Home,

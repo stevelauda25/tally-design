@@ -1,4 +1,4 @@
-import { Button, Checkbox, SearchInput, Tooltip } from '@commonforge/ui';
+import { Button, Checkbox, SearchInput, Tooltip } from '@tally-ui/ui';
 import {
   ArrowRight,
   Bell,

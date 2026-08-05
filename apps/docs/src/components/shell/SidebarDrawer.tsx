@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Sidebar } from './Sidebar.js';
-import { cn } from '@commonforge/ui';
+import { cn } from '@tally-ui/ui';
 
 interface Props {
   open: boolean;

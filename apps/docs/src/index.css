@@ -1,4 +1,4 @@
-@import '@commonforge/tokens/theme.css';
+@import '@tally-ui/tokens/theme.css';
 
 @tailwind base;
 @tailwind components;
@@ -159,10 +159,10 @@ html.dark      .mdx-content code span { color: var(--shiki-dark);  }
   50%      { transform: scale(1.4); opacity: 0.6; }
 }
 
-/* ── SPARC theme scope for Phase-1 atom pages ───────────────────────────── */
-/* Wraps /components/sparc-* pages so they render with SPARC foundation
+/* ── Tally theme scope for Phase-1 atom pages ───────────────────────────── */
+/* Wraps /components/tally-* pages so they render with Tally foundation
    tokens + Geist font while the rest of the doc site keeps POD styling. */
-.sparc-theme {
+.tally-theme {
   font-family: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
 
   --color-bg-canvas: 251 250 249;
@@ -180,6 +180,6 @@ html.dark      .mdx-content code span { color: var(--shiki-dark);  }
   --color-border-strong: 207 199 188;
 }
 
-html.dark .sparc-theme {
-  /* SPARC does not define a dark mode; keep POD dark values when forced. */
+html.dark .tally-theme {
+  /* Tally does not define a dark mode; keep POD dark values when forced. */
 }

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ChevronDown } from 'lucide-react';
-import { cn } from '@commonforge/ui';
+import { cn } from '@tally-ui/ui';
 
-// LOCAL — @commonforge/ui has no <Select>. Built here per CLAUDE.md Rule 10
+// LOCAL — @tally-ui/ui has no <Select>. Built here per CLAUDE.md Rule 10
 // using POD semantic tokens. Native <select> for now (no listbox / search).
 // Promote upstream once design system ships a Select primitive with floating menu.
 

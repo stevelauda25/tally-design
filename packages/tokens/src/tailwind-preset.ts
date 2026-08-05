@@ -21,9 +21,9 @@ const ramp = (scale: Record<string, string>) =>
   );
 
 /**
- * SPARC primitive color ramps (from primitives.ts), registered as static
+ * Tally primitive color ramps (from primitives.ts), registered as static
  * hexes so utilities like `bg-red-25`, `bg-green-400` or `text-red-500`
- * resolve to SPARC values instead of the Tailwind default palette.
+ * resolve to Tally values instead of the Tailwind default palette.
  */
 const colors = {
   neutral: ramp(primitives.neutral),

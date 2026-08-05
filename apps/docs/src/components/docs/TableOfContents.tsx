@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { cn } from '@commonforge/ui';
+import { cn } from '@tally-ui/ui';
 
 interface Heading {
   id: string;

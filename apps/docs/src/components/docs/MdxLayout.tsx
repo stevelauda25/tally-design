@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
-import { cn } from '@commonforge/ui';
+import { cn } from '@tally-ui/ui';
 import { TableOfContents } from './TableOfContents.js';
 
 // TOC auto-shows on every /components/* and /foundations/* page.
@@ -10,9 +10,9 @@ const TOC_PREFIXES = ['/components/', '/foundations/'];
 export function MdxLayout({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
   const showToc = TOC_PREFIXES.some((p) => pathname.startsWith(p));
-  // Every component page documents a SPARC atom, so they all get the SPARC theme.
-  const isSparc = pathname.startsWith('/components/');
-  const contentClass = cn('mdx-content', isSparc && 'sparc-theme');
+  // Every component page documents a Tally atom, so they all get the Tally theme.
+  const isTally = pathname.startsWith('/components/');
+  const contentClass = cn('mdx-content', isTally && 'tally-theme');
 
   if (!showToc) {
     return <div className={cn(contentClass, 'mx-auto')}>{children}</div>;

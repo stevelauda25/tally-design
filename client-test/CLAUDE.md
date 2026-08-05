@@ -6,16 +6,16 @@ This file is **mandatory reading** before generating or editing any code in this
 
 ## Project Identity
 
-This is `client-test` — a React + Vite + TypeScript application that consumes the **CF Design System** via two npm packages:
+This is `client-test` — a React + Vite + TypeScript application that consumes the **tally-ui Design System** via two npm packages:
 
-- **`@commonforge/ui`** — React components. Current shipped set: `Button`, `Checkbox`, `TextInput`, `SearchInput`, `Dropdown` (+ `DropdownMenu` / `DropdownItem` / `DropdownBadge`), `Tooltip`, `Switch` (experimental), **`Badge`** (added 0.1.8), **`Tab`** (added 0.1.8).
-- **`@commonforge/tokens`** — Design tokens (CSS variables + Tailwind preset). Source of truth for colors, radius, shadows, **spacing**, **font family**, **font size**, motion durations + easings, keyframes.
+- **`@tally-ui/ui`** — React components. Current shipped set: `Button`, `Checkbox`, `TextInput`, `SearchInput`, `Dropdown` (+ `DropdownMenu` / `DropdownItem` / `DropdownBadge`), `Tooltip`, `Switch` (experimental), **`Badge`** (added 0.1.8), **`Tab`** (added 0.1.8).
+- **`@tally-ui/tokens`** — Design tokens (CSS variables + Tailwind preset). Source of truth for colors, radius, shadows, **spacing**, **font family**, **font size**, motion durations + easings, keyframes.
 
 These packages are the **single source of truth** for visual design AND interaction primitives. They are token-driven, dark-mode-aware, and accessibility-aware. Treat them as production primitives — never re-implement what they provide.
 
-> **Hard rule:** Every screen, page, or fragment generated in this project MUST be composed from `@commonforge/ui` components and `@commonforge/tokens` semantic classes. No native `<button>`, no hex codes, no ad-hoc styling, no third-party variants of primitives that POD already ships. If a primitive doesn't exist → see Rule 10.
+> **Hard rule:** Every screen, page, or fragment generated in this project MUST be composed from `@tally-ui/ui` components and `@tally-ui/tokens` semantic classes. No native `<button>`, no hex codes, no ad-hoc styling, no third-party variants of primitives that POD already ships. If a primitive doesn't exist → see Rule 10.
 
-> **The list above can lag the actual installed version.** Before generating code, ALWAYS check `node_modules/@commonforge/ui/AGENTS.md` (ships in the tarball, auto-updates on `npm install`). That file is the ground truth — this CLAUDE.md is a project-level overview only.
+> **The list above can lag the actual installed version.** Before generating code, ALWAYS check `node_modules/@tally-ui/ui/AGENTS.md` (ships in the tarball, auto-updates on `npm install`). That file is the ground truth — this CLAUDE.md is a project-level overview only.
 
 ---
 
@@ -27,9 +27,9 @@ These packages are the **single source of truth** for visual design AND interact
 | TypeScript | `^6.x` | `strict: true`, `noEmit: true` (Vite handles compilation) |
 | Vite | `^8.x` | Dev server & build |
 | **Tailwind CSS** | **`^3.4.x` (v3 ONLY)** | See "Tailwind Rules" below |
-| `@commonforge/ui` | **always latest published** | Currently `^0.1.8`. Bump on every release; never freeze on an old minor. |
-| `@commonforge/tokens` | **always latest published** | Currently `^0.1.8`. Lockstep with `@commonforge/ui`. |
-| `lucide-react` | latest | Icon set — bundled by `@commonforge/ui` |
+| `@tally-ui/ui` | **always latest published** | Currently `^0.1.8`. Bump on every release; never freeze on an old minor. |
+| `@tally-ui/tokens` | **always latest published** | Currently `^0.1.8`. Lockstep with `@tally-ui/ui`. |
+| `lucide-react` | latest | Icon set — bundled by `@tally-ui/ui` |
 
 ---
 
@@ -79,27 +79,27 @@ Otherwise default English. If unsure, default English.
 
 ### Rule 0 — Always Use the Latest NPM Version (PINNED-CARET, NOT FROZEN)
 
-`package.json` deps for `@commonforge/ui` and `@commonforge/tokens` MUST use a caret
+`package.json` deps for `@tally-ui/ui` and `@tally-ui/tokens` MUST use a caret
 range pointing to the latest published version. Whenever a new version
 ships on npm, bump both in lockstep, run `npm install`, and verify
-`node_modules/@commonforge/ui/AGENTS.md` reflects the new version. Component
+`node_modules/@tally-ui/ui/AGENTS.md` reflects the new version. Component
 availability + intent map + token list change between releases — old
 AGENTS.md = stale rules in your head.
 
 ```jsonc
 // ✅ package.json after every POD release
 "dependencies": {
-  "@commonforge/tokens": "^0.1.8",
-  "@commonforge/ui":     "^0.1.8"
+  "@tally-ui/tokens": "^0.1.8",
+  "@tally-ui/ui":     "^0.1.8"
 }
 ```
 
 **Before generating any UI**, confirm three things:
 
-1. `cat node_modules/@commonforge/ui/package.json | grep version` — installed version.
-2. `npm view @commonforge/ui version` — latest on npm. If installed < latest,
+1. `cat node_modules/@tally-ui/ui/package.json | grep version` — installed version.
+2. `npm view @tally-ui/ui version` — latest on npm. If installed < latest,
    bump first. New components / new props you'd miss otherwise.
-3. `cat node_modules/@commonforge/ui/AGENTS.md` — ground-truth changelog +
+3. `cat node_modules/@tally-ui/ui/AGENTS.md` — ground-truth changelog +
    component table + intent map. Use those exact API names; don't
    guess from training data.
 
@@ -112,7 +112,7 @@ AGENTS.md = stale rules in your head.
 
 ### Rule 1 — Always Use Library Components (PAKEM, ZERO EXCEPTION)
 
-When generating ANY UI — a screen, a card, a form, a single row — your first move is: **map the request to existing `@commonforge/ui` primitives**. If a primitive maps, use it. No exceptions, no "just this once for prototype", no "let me hardcode quickly".
+When generating ANY UI — a screen, a card, a form, a single row — your first move is: **map the request to existing `@tally-ui/ui` primitives**. If a primitive maps, use it. No exceptions, no "just this once for prototype", no "let me hardcode quickly".
 
 ```tsx
 // ✅ ALWAYS — import from the npm package, top-level entry
@@ -120,7 +120,7 @@ import {
   Button, Checkbox, TextInput, SearchInput,
   Dropdown, DropdownMenu, DropdownItem, DropdownBadge,
   Tooltip, Switch, Badge, Tab,
-} from '@commonforge/ui';
+} from '@tally-ui/ui';
 
 <Button variant="primary">Save</Button>
 <Checkbox checked={x} onCheckedChange={setX} label="Agree" />
@@ -158,12 +158,12 @@ import {
 | Native `<input type="text">` / `<input type="search">` | ❌ Never. Always `<TextInput>` / `<SearchInput>`. |
 | Native `<select>` | ❌ Never. Always `<Dropdown popup={...}>`. |
 
-If you find yourself writing `<button>`, `<input>`, `<select>`, or any styled `<div>` that *acts like* a primitive POD ships — STOP. Replace with the POD primitive. When in doubt, `cat node_modules/@commonforge/ui/AGENTS.md` to confirm what's shipped in the installed version.
+If you find yourself writing `<button>`, `<input>`, `<select>`, or any styled `<div>` that *acts like* a primitive POD ships — STOP. Replace with the POD primitive. When in doubt, `cat node_modules/@tally-ui/ui/AGENTS.md` to confirm what's shipped in the installed version.
 
 ### Rule 2 — Always Use Semantic Tokens (color, radius, shadow, spacing, font, motion)
 
 Every visual value MUST come from a token class exposed by the
-`@commonforge/tokens` Tailwind preset. Hex codes, `rgb()`, named colors,
+`@tally-ui/tokens` Tailwind preset. Hex codes, `rgb()`, named colors,
 arbitrary spacing (`p-[17px]`), and one-off font sizes are forbidden in
 application code.
 
@@ -300,20 +300,20 @@ Always import from the package root. Subpath imports work but are not the public
 
 ```tsx
 // ✅ ALWAYS
-import { Button, Checkbox, TextInput, Tooltip, Switch } from '@commonforge/ui';
+import { Button, Checkbox, TextInput, Tooltip, Switch } from '@tally-ui/ui';
 
 // ❌ NEVER (private build artifact)
-import { Button } from '@commonforge/ui/dist/button';
+import { Button } from '@tally-ui/ui/dist/button';
 
 // ⚠ Subpath imports work and are valid for tree-shaking, but top-level is the preferred public API:
-import { Button } from '@commonforge/ui/button';   // works, prefer top-level
+import { Button } from '@tally-ui/ui/button';   // works, prefer top-level
 ```
 
 ### Rule 10 — When a Primitive Is Missing
 
-`@commonforge/ui` currently ships: `Button`, `Checkbox`, `TextInput`, `SearchInput`,
+`@tally-ui/ui` currently ships: `Button`, `Checkbox`, `TextInput`, `SearchInput`,
 `Dropdown` (+ DropdownMenu / DropdownItem / DropdownBadge), `Tooltip`, `Switch`,
-`Badge`, `Tab`. **Confirm via `cat node_modules/@commonforge/ui/AGENTS.md`** before
+`Badge`, `Tab`. **Confirm via `cat node_modules/@tally-ui/ui/AGENTS.md`** before
 assuming something is missing — the list above may lag.
 
 Truly missing (as of 0.1.8): `Modal` / `Dialog`, `Combobox`, `DatePicker`,
@@ -327,9 +327,9 @@ needed.
 
 When the user asks for one of the truly missing primitives:
 
-1. **Build it locally** in `src/components/` using the same token system (`bg-canvas`, `text-text-primary`, etc.) and the same patterns as `@commonforge/ui` (forwardRef, controlled, semantic tokens, blur+scale exit motion for dismissals).
+1. **Build it locally** in `src/components/` using the same token system (`bg-canvas`, `text-text-primary`, etc.) and the same patterns as `@tally-ui/ui` (forwardRef, controlled, semantic tokens, blur+scale exit motion for dismissals).
 2. **Document why** in a brief comment at the top of the new component file.
-3. **Never** copy code out of `node_modules/@commonforge/ui/`.
+3. **Never** copy code out of `node_modules/@tally-ui/ui/`.
 4. **Suggest** to the user that the missing primitive should be requested upstream from the design system maintainer.
 
 ---
@@ -342,8 +342,8 @@ client-test/
 │   ├── App.tsx           # Top-level layout + route surface
 │   ├── main.tsx          # React entry; imports CSS in correct order
 │   ├── index.css         # @tailwind directives + body styling
-│   ├── theme.css         # ⚠️ LEGACY local copy — prefer importing from '@commonforge/tokens/theme.css'
-│   ├── tailwind-preset.ts # ⚠️ LEGACY local copy — prefer importing from '@commonforge/tokens/tailwind-preset'
+│   ├── theme.css         # ⚠️ LEGACY local copy — prefer importing from '@tally-ui/tokens/theme.css'
+│   ├── tailwind-preset.ts # ⚠️ LEGACY local copy — prefer importing from '@tally-ui/tokens/tailwind-preset'
 │   └── components/       # (create as needed for missing primitives)
 ├── tailwind.config.js
 ├── postcss.config.js
@@ -392,15 +392,15 @@ Refer to `CLIENT-PROMPT.md` in this directory. It is the canonical setup guide (
 Library versi-versi bisa berbeda. File ini (`CLAUDE.md`) bisa stale. **Untuk daftar component, prop, token, dan rule yang aktual di versi terinstall:**
 
 ```bash
-cat node_modules/@commonforge/ui/AGENTS.md
+cat node_modules/@tally-ui/ui/AGENTS.md
 ```
 
-File itu di-ship dalam tarball npm. Setiap `npm update @commonforge/ui` di project ini, manifest itu auto-update. Tidak perlu manual edit CLAUDE.md ini saat library rilis component baru.
+File itu di-ship dalam tarball npm. Setiap `npm update @tally-ui/ui` di project ini, manifest itu auto-update. Tidak perlu manual edit CLAUDE.md ini saat library rilis component baru.
 
 **Priority order saat ada konflik info:**
 
-1. `node_modules/@commonforge/ui/AGENTS.md` — ground truth (versi-spesifik, auto-sync)
-2. `node_modules/@commonforge/ui/dist/index.d.ts` — TS exports (kalau AGENTS.md missing/stale)
+1. `node_modules/@tally-ui/ui/AGENTS.md` — ground truth (versi-spesifik, auto-sync)
+2. `node_modules/@tally-ui/ui/dist/index.d.ts` — TS exports (kalau AGENTS.md missing/stale)
 3. `CLAUDE.md` (this file) — rule generik consumer-side (stack, dark mode, dll)
 4. `CLIENT-PROMPT.md` — setup detail (Tailwind v3, PostCSS, dll)
 5. `COMPONENT-RECIPES.md` — pattern siap pakai
@@ -416,14 +416,14 @@ File itu di-ship dalam tarball npm. Setiap `npm update @commonforge/ui` di proje
 
 ## Agentation Feedback Flow
 
-This project has `agentation` (visual feedback overlay) wired into `App.tsx`. Owner non-dev klik element di browser → tulis intent → output disalin ke clipboard sudah ter-enrich dengan POD context lewat `src/lib/cf-agentation.ts`.
+This project has `agentation` (visual feedback overlay) wired into `App.tsx`. Owner non-dev klik element di browser → tulis intent → output disalin ke clipboard sudah ter-enrich dengan POD context lewat `src/lib/tally-ui-agentation.ts`.
 
 **Saat user paste output agentation ke kamu**, output-nya akan punya format:
 
 ```markdown
 # Agentation Feedback — POD-enriched
 
-You are editing a project that uses **CF Design System** (...)
+You are editing a project that uses **tally-ui Design System** (...)
 **Hard rules** (zero exceptions — see `client-test/CLAUDE.md`):
 - Every UI change must use POD primitives + semantic tokens.
 - ...
@@ -433,9 +433,9 @@ You are editing a project that uses **CF Design System** (...)
 ### Annotation: Button
 **User intent:** ganti ke outline
 
-**POD context:** Target is `<Button>` from `@commonforge/ui` (a tracked primitive).
+**POD context:** Target is `<Button>` from `@tally-ui/ui` (a tracked primitive).
 → Edit MUST keep this as `<Button>`. Don't replace with native `<button>`/`<input>`.
-→ Available props/variants: see `node_modules/@commonforge/ui/AGENTS.md`.
+→ Available props/variants: see `node_modules/@tally-ui/ui/AGENTS.md`.
 
 **Location:** `body > main > section > div > button`
 **Current classes:** `...`
@@ -447,7 +447,7 @@ You are editing a project that uses **CF Design System** (...)
 2. **Cek `POD context` line:**
    - Kalau target POD primitive → translate intent ke prop change pada element existing. Don't rebuild from scratch.
    - Kalau target local component → translate ke className/prop change pakai POD tokens (no hex).
-3. **Cek `node_modules/@commonforge/ui/AGENTS.md`** untuk:
+3. **Cek `node_modules/@tally-ui/ui/AGENTS.md`** untuk:
    - Daftar variant/size yang valid untuk component itu
    - Token names untuk styling adjustment
 4. **Gunakan intent map** di AGENTS.md untuk natural language → API call. Misal "ganti ke outline" → `variant="outline"` (POD pakai "outline", bukan "secondary").
@@ -473,13 +473,13 @@ When reviewing existing code (yours or others') in this project, flag and fix an
 - ✗ `<Tooltip>` wrapping a non-focusable element
 - ✗ Icon-only `<Button>` without `aria-label`
 - ✗ `defaultChecked` / uncontrolled `<Checkbox>` (Checkbox is controlled-only; TextInput / Switch DO accept uncontrolled, that's fine)
-- ✗ Subpath imports: `@commonforge/ui/dist/...`
+- ✗ Subpath imports: `@tally-ui/ui/dist/...`
 - ✗ Re-implementing `Button`, `Checkbox`, `TextInput`, `SearchInput`, `Dropdown`, `Tooltip`, `Switch`, `Badge`, or `Tab`
 - ✗ Legacy shadow classes (`shadow-sm`, `shadow-md`, `shadow-lg`) — removed in 0.1.0, migrate to `shadow-foundation-*`
 - ✗ Inventing radius keys (`rounded-2.5xl`, `rounded-huge`) — only the documented scale is real
 - ✗ Touching `experiment-*` tokens for "production" UI — those are time-bounded experiments, not stable primitives
 - ✗ Instant DOM removal on user-triggered dismissal (filter chips, removable tags, toasts) — POD's removal-motion standard is 280ms blur+scale+width-collapse. See AGENTS.md "Motion" section for the recipe.
-- ✗ Stale `package.json` — running against an older `@commonforge/ui` than what's on npm. Run `npm view @commonforge/ui version`; if installed < latest, bump first.
+- ✗ Stale `package.json` — running against an older `@tally-ui/ui` than what's on npm. Run `npm view @tally-ui/ui version`; if installed < latest, bump first.
 
 ---
 

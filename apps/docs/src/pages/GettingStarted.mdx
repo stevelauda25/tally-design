@@ -1,6 +1,6 @@
 <PageHeader
   title="Getting Started"
-  description="This design system packages the SPARC tokens and React atoms: token primitives, a Tailwind preset, and components. Light/dark and accessible by default."
+  description="This design system packages the Tally tokens and React atoms: token primitives, a Tailwind preset, and components. Light/dark and accessible by default."
 />
 
 ## Install
@@ -13,8 +13,8 @@ pnpm dev   # docs at http://localhost:5174
 ## Use
 
 ```tsx
-import { Button } from '@commonforge/ui';
-import '@commonforge/tokens/theme.css';
+import { Button } from '@tally-ui/ui';
+import '@tally-ui/tokens/theme.css';
 
 <Button>Click me</Button>
 ```
@@ -22,7 +22,7 @@ import '@commonforge/tokens/theme.css';
 Wire the Tailwind preset in your app's `tailwind.config.ts`:
 
 ```ts
-import preset from '@commonforge/tokens/tailwind-preset';
+import preset from '@tally-ui/tokens/tailwind-preset';
 
 export default {
   presets: [preset],
@@ -31,7 +31,7 @@ export default {
 ```
 
 Both packages are local workspace packages in this repo: `packages/tokens`
-(published name `@commonforge/tokens`) and `packages/ui` (`@commonforge/ui`).
+(published name `@tally-ui/tokens`) and `packages/ui` (`@tally-ui/ui`).
 
 ## How tokens work
 
@@ -41,8 +41,8 @@ Two layers, bridged by Tailwind:
 - **Semantic** (`packages/tokens/src/theme.css`) — what components consume: `bg-canvas`, `text-primary`, `accent.*`. Two scopes: `:root` (light) and `.dark`.
 - **Preset** (`packages/tokens/src/tailwind-preset.ts`) — every semantic variable becomes a Tailwind utility (`bg-canvas`, `border-default`, …).
 
-The token values were collected from the SPARC apps (carltonLaborPlanning +
-commonforge-sparc-ui) on 2026-07-21 and are this repo's token source — see the
+The token values were collected from tally-ui-source on 2026-07-21 and are
+this repo's token source — see the
 Foundations pages for the full scales.
 
 Components never read tokens directly. They consume utility classes only.

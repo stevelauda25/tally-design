@@ -1,5 +1,5 @@
 {
-  "name": "@commonforge/tokens",
+  "name": "@tally-ui/tokens",
   "version": "0.1.3",
   "type": "module",
   "main": "./dist/index.js",

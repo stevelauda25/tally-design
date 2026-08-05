@@ -1,4 +1,4 @@
-import { Button, SearchInput, Tooltip } from '@commonforge/ui';
+import { Button, SearchInput, Tooltip } from '@tally-ui/ui';
 import { Bell, HelpCircle } from 'lucide-react';
 import { useState } from 'react';
 

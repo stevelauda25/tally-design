@@ -1,7 +1,7 @@
-# Button — SPARC Phase-1 Atom Spec
+# Button — Tally Phase-1 Atom Spec
 
 > Sumber: Figma component set "Button" + implementasi `button.tsx`.
-> Status: collected, built, showcased in POD docs as `/components/sparc-button`.
+> Status: collected, built, showcased in POD docs as `/components/tally-button`.
 
 ## 1. Purpose
 
@@ -74,8 +74,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 | Token purpose | Value | Note |
 |---|---|---|
-| Primary background | `#C0180C` | SPARC brand red |
-| Danger background | `#E51D31` | SPARC danger red |
+| Primary background | `#C0180C` | Tally brand red |
+| Danger background | `#E51D31` | Tally danger red |
 | Inverse background | `#26201C` | Warm dark |
 | Secondary/outline border | `border-white/10`, `border-[#8F8F8F]` |  |
 | Disabled primary bg | `#F9766C` |  |
@@ -95,7 +95,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 ## 8. Usage Examples
 
 ```tsx
-import { Button } from '@commonforge/ui';
+import { Button } from '@tally-ui/ui';
 import { Plus, ArrowRight } from 'lucide-react';
 
 <Button>Primary</Button>

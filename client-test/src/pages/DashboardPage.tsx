@@ -1,4 +1,4 @@
-import { Button } from '@commonforge/ui';
+import { Button } from '@tally-ui/ui';
 import { Download } from 'lucide-react';
 import {
   Bar,

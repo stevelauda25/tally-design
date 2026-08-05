@@ -1,14 +1,14 @@
 {
-  "name": "pod-design-system-test",
+  "name": "tally-ui",
   "private": true,
   "version": "0.1.12",
   "description": "Small design system test environment for POD — sprint-style scope.",
   "packageManager": "pnpm@9.7.0",
   "scripts": {
-    "dev": "pnpm -F docs dev",
+    "dev": "pnpm -F tally-ui-docs dev",
     "build": "pnpm build:docs",
-    "build:packages": "pnpm -F @commonforge/tokens build && pnpm -F @commonforge/ui build",
-    "build:docs": "pnpm build:packages && mkdir -p apps/docs/public && echo '{\"drifted\":[],\"inSync\":[],\"errors\":[]}' > apps/docs/public/figma-status.json && echo '{\"components\":[]}' > apps/docs/public/figma-manifest.json && pnpm -F docs build",
+    "build:packages": "pnpm -F @tally-ui/tokens build && pnpm -F @tally-ui/ui build",
+    "build:docs": "pnpm build:packages && mkdir -p apps/docs/public && echo '{\"drifted\":[],\"inSync\":[],\"errors\":[]}' > apps/docs/public/figma-status.json && echo '{\"components\":[]}' > apps/docs/public/figma-manifest.json && pnpm -F tally-ui-docs build",
     "build:centernode": "pnpm build:packages && cd centernode && npm install --no-fund --no-audit && npm run build",
     "build:client": "cd client-test && npm install --no-fund --no-audit && npm run build",
     "build:all": "pnpm build:docs && pnpm build:centernode && pnpm build:client",

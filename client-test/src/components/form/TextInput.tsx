@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { cn } from '@commonforge/ui';
+import { cn } from '@tally-ui/ui';
 
-// LOCAL — @commonforge/ui has no generic <Input>. Built here per CLAUDE.md Rule 10
+// LOCAL — @tally-ui/ui has no generic <Input>. Built here per CLAUDE.md Rule 10
 // using POD semantic tokens (bg-surface, border-border-default, text-text-primary).
 // Promote upstream once design system ships an Input primitive.
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
-import { Button } from '@commonforge/ui';
+import { Button } from '@tally-ui/ui';
 import { ThemeToggle } from './ThemeToggle.js';
 
 interface Props {
@@ -20,7 +20,7 @@ export function Topbar({ onMenuClick }: Props) {
           leftIcon={<Menu className="h-4 w-4" />}
         />
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-sm font-semibold text-default">CommonForge</span>
+          <span className="text-sm font-semibold text-default">tally-ui</span>
           <span className="text-sm text-muted">Design System</span>
           <span className="ml-2 rounded bg-muted px-1.5 py-0.5 text-xs font-mono text-muted">
             v0.1.3

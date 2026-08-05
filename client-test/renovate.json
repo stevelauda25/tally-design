@@ -6,12 +6,12 @@
   "description": "TEMPLATE for real client repos consuming pod-test-* packages. Copy this file to your repo root and adjust the schedule/auto-merge rules to your team's taste.",
   "packageRules": [
     {
-      "description": "CF Design System packages — group + frequent",
+      "description": "tally-ui Design System packages — group + frequent",
       "matchPackageNames": [
-        "@commonforge/ui",
-        "@commonforge/tokens"
+        "@tally-ui/ui",
+        "@tally-ui/tokens"
       ],
-      "groupName": "CF Design System",
+      "groupName": "tally-ui Design System",
       "schedule": ["before 9am on monday"],
       "labels": ["pod-design-system", "automated"],
       "commitMessagePrefix": "deps(pod):",
@@ -21,8 +21,8 @@
     {
       "description": "Auto-merge patch updates from pod-* if CI passes",
       "matchPackageNames": [
-        "@commonforge/ui",
-        "@commonforge/tokens"
+        "@tally-ui/ui",
+        "@tally-ui/tokens"
       ],
       "matchUpdateTypes": ["patch"],
       "automerge": true,

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { cn } from '@commonforge/ui';
+import { cn } from '@tally-ui/ui';
 import {
   routes,
-  componentRoutes,
   foundationRoutes,
   resourceRoutes,
   groupMeta,
@@ -139,20 +138,6 @@ export function Sidebar({ onNavigate }: SidebarProps) {
               key={r.path}
               to={r.path}
               label={r.label}
-              onNavigate={onNavigate}
-            />
-          ))}
-        </Group>
-      )}
-
-      {componentRoutes.length > 0 && (
-        <Group {...groupMeta.components}>
-          {componentRoutes.map((r) => (
-            <NavItem
-              key={r.path}
-              to={r.path}
-              label={r.label}
-              status={r.status}
               onNavigate={onNavigate}
             />
           ))}

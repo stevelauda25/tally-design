@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "tally-ui-docs",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -13,8 +13,8 @@
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
     "lucide-react": "^0.428.0",
-    "@commonforge/tokens": "workspace:*",
-    "@commonforge/ui": "workspace:*",
+    "@tally-ui/tokens": "workspace:*",
+    "@tally-ui/ui": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0",

@@ -1,4 +1,4 @@
-import { hexToRgbTriple } from "./cfTokens";
+import { hexToRgbTriple } from "./tallyUiTokens";
 
 /**
  * Build inline CSS variables for a node's tokenOverrides object.

@@ -9,7 +9,7 @@
  *   3. Re-generates `packages/ui/tsup.config.ts` entry list.
  *   4. Re-generates `packages/ui/package.json` `exports` section
  *      (preserves manual fields, only rewrites subpath exports).
- *   5. Re-generates `centernode/src/utils/cfRuntime.js`
+ *   5. Re-generates `centernode/src/utils/tallyUiRuntime.js`
  *      imports + POD_COMPONENTS map.
  *
  * Workflow for adding a new component (e.g. Switch):
@@ -32,7 +32,7 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '../..');
 const UI_SRC = path.join(ROOT, 'packages/ui/src');
 const UI_PKG = path.join(ROOT, 'packages/ui');
-const CENTERNODE_RUNTIME = path.join(ROOT, 'centernode/src/utils/cfRuntime.js');
+const CENTERNODE_RUNTIME = path.join(ROOT, 'centernode/src/utils/tallyUiRuntime.js');
 
 const SKIP_DIRS = new Set(['lib']);
 const SKIP_PREFIX = '_';
@@ -159,7 +159,7 @@ function writePackageJsonExports(components) {
   writeJSON(file, pkg);
 }
 
-// ── 5. Generate centernode cfRuntime.js (POD_COMPONENTS map) ──────────────
+// ── 5. Generate centernode tallyUiRuntime.js (POD_COMPONENTS map) ──────────────
 function writeCenternodeRuntime(components) {
   if (!fs.existsSync(CENTERNODE_RUNTIME)) return; // optional — only if centernode present
 
@@ -177,9 +177,9 @@ function writeCenternodeRuntime(components) {
   let imports = '';
   for (const c of withMeta) {
     const named = [c.componentName, ...c.extraScope].join(', ');
-    imports += `import { ${named} } from "@commonforge/ui/${c.dir}";\n`;
+    imports += `import { ${named} } from "@tally-ui/ui/${c.dir}";\n`;
   }
-  imports += `import { canvasManifest } from "@commonforge/ui/canvas";\n`;
+  imports += `import { canvasManifest } from "@tally-ui/ui/canvas";\n`;
   imports += `import { transform } from "sucrase";\n\n`;
 
   // POD_COMPONENTS includes primary + all extraScope sub-primitives so composite
@@ -242,7 +242,7 @@ function main() {
 
   writeCenternodeRuntime(components);
   if (fs.existsSync(CENTERNODE_RUNTIME)) {
-    console.log('[canvas-sync] wrote centernode/src/utils/cfRuntime.js');
+    console.log('[canvas-sync] wrote centernode/src/utils/tallyUiRuntime.js');
   }
 
   console.log('[canvas-sync] ✓ done');

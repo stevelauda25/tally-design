@@ -391,7 +391,7 @@ The `tsx` block must be copy-pastable as-is. No pseudo-code, no `...` truncation
 **Template (write only if file doesn't exist):**
 
 ```mdx
-import { <PascalName> } from '@commonforge/ui';
+import { <PascalName> } from '@tally-ui/ui';
 
 <PageHeader
   title="<Display Name>"

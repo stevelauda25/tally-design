@@ -1,0 +1,27 @@
+import { Checkbox } from '@tally-ui/ui';
+
+<PageHeader
+  title="Checkbox"
+  description="Multi-select boolean input in three sizes."
+/>
+
+## Sizes
+
+<PreviewCard>
+  <div className="flex flex-wrap items-center gap-4">
+    <Checkbox size="small" checked />
+    <Checkbox size="medium" checked />
+    <Checkbox size="large" checked />
+  </div>
+</PreviewCard>
+
+## States
+
+<PreviewCard>
+  <div className="flex flex-wrap items-center gap-4">
+    <Checkbox />
+    <Checkbox checked />
+    <Checkbox checked disabled />
+    <Checkbox disabled />
+  </div>
+</PreviewCard>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Badge, Button, Tooltip } from '@commonforge/ui';
-import type { BadgeColor } from '@commonforge/ui';
+import { Badge, Button, Tooltip } from '@tally-ui/ui';
+import type { BadgeColor } from '@tally-ui/ui';
 import { Trash2, Save } from 'lucide-react';
 
 type TagKey = 'bug' | 'feature' | 'improvement';

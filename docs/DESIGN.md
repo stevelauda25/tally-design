@@ -1,4 +1,4 @@
-# CF Design System — Sprint 1 Design
+# tally-ui Design System — Sprint 1 Design
 
 **Status:** Implemented · Sprint 1 scope
 **Components:** Button · Checkbox · SearchInput · Tooltip

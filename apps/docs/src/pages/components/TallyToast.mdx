@@ -1,0 +1,95 @@
+import { Toast } from '@tally-ui/ui';
+import { CheckCircle } from 'lucide-react';
+
+<PageHeader
+  title="Toast"
+  description="Dismissible status notification with a loading slot, optional action, and four tones."
+/>
+
+## Variants
+
+<PreviewCard>
+  <div className="flex flex-col gap-3">
+    <Toast
+      className="w-[427px] max-w-full"
+      title="Plan saved"
+      description="Your staffing plan was saved to Holly Hills."
+      actionLabel="View plan"
+      onAction={() => {}}
+      onDismiss={() => {}}
+    />
+    <Toast
+      variant="success"
+      className="w-[427px] max-w-full"
+      title="Plan saved"
+      description="Your staffing plan was saved to Holly Hills."
+      actionLabel="View plan"
+      onAction={() => {}}
+      onDismiss={() => {}}
+    />
+    <Toast
+      variant="warning"
+      className="w-[427px] max-w-full"
+      title="Plan saved"
+      description="Your staffing plan was saved to Holly Hills."
+      actionLabel="View plan"
+      onAction={() => {}}
+      onDismiss={() => {}}
+    />
+    <Toast
+      variant="error"
+      className="w-[427px] max-w-full"
+      title="Plan saved"
+      description="Your staffing plan was saved to Holly Hills."
+      actionLabel="View plan"
+      onAction={() => {}}
+      onDismiss={() => {}}
+    />
+  </div>
+</PreviewCard>
+
+## Loading slot
+
+<PreviewCard>
+  <div className="flex flex-col gap-3">
+    <Toast
+      title="Saving plan"
+      description="Your staffing plan is being saved to Holly Hills."
+      onDismiss={() => {}}
+    />
+    <Toast
+      loading={false}
+      title="Plan saved"
+      description="Your staffing plan was saved to Holly Hills."
+      actionLabel="View plan"
+      onAction={() => {}}
+      onDismiss={() => {}}
+    />
+  </div>
+</PreviewCard>
+
+## Custom icon
+
+<PreviewCard>
+  <Toast
+    variant="success"
+    icon={<CheckCircle />}
+    loading={false}
+    title="Plan published"
+    description="Your staffing plan is now live for Holly Hills."
+    actionLabel="View plan"
+    onAction={() => {}}
+    onDismiss={() => {}}
+  />
+</PreviewCard>
+
+## Compact
+
+<PreviewCard>
+  <Toast
+    loading={false}
+    title="Saved"
+    description="Done."
+    onDismiss={() => {}}
+  />
+</PreviewCard>

@@ -675,19 +675,19 @@ var import_jsx_runtime11 = require("react/jsx-runtime");
 var HANDLE_SHADOW = "0 4px 8px -4px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.15), 0 1px 2px -1px rgba(0,0,0,0.2), inset 0 0 0 0.5px rgba(0,0,0,0.1), inset 0 -0.5px 0.5px 0 rgba(0,0,0,0.1), inset 0 0.5px 1px 0 rgba(255,255,255,0.25)";
 var HANDLE_SHADOW_CLASS = "shadow-[0_4px_8px_-4px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.15),0_1px_2px_-1px_rgba(0,0,0,0.2),inset_0_0_0_0.5px_rgba(0,0,0,0.1),inset_0_-0.5px_0.5px_0_rgba(0,0,0,0.1),inset_0_0.5px_1px_0_rgba(255,255,255,0.25)]";
 var SLIDER_CSS = `
-.sparc-slider-input {
+.tally-slider-input {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
   background: transparent;
   pointer-events: none;
 }
-.sparc-slider-input::-webkit-slider-runnable-track {
+.tally-slider-input::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   background: transparent;
   border: none;
 }
-.sparc-slider-input::-webkit-slider-thumb {
+.tally-slider-input::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   pointer-events: auto;
@@ -699,11 +699,11 @@ var SLIDER_CSS = `
   box-shadow: ${HANDLE_SHADOW};
   cursor: pointer;
 }
-.sparc-slider-input::-moz-range-track {
+.tally-slider-input::-moz-range-track {
   background: transparent;
   border: none;
 }
-.sparc-slider-input::-moz-range-thumb {
+.tally-slider-input::-moz-range-thumb {
   pointer-events: auto;
   height: 10px;
   width: 10px;
@@ -775,7 +775,7 @@ function Slider({
           value: variant === "range" ? end : start,
           onChange: (event) => variant === "range" ? setEnd(Number(event.target.value)) : setStart(Number(event.target.value)),
           "aria-label": variant === "range" ? `${label} maximum` : label,
-          className: "sparc-slider-input absolute inset-0 z-10 h-[10px] w-full"
+          className: "tally-slider-input absolute inset-0 z-10 h-[10px] w-full"
         }
       ),
       variant === "range" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
@@ -787,7 +787,7 @@ function Slider({
           value: start,
           onChange: (event) => setStart(Number(event.target.value)),
           "aria-label": `${label} minimum`,
-          className: "sparc-slider-input absolute inset-0 z-20 h-[10px] w-full"
+          className: "tally-slider-input absolute inset-0 z-20 h-[10px] w-full"
         }
       )
     ] }),

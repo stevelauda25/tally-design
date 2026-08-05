@@ -35,7 +35,7 @@ import {
   Timeline,
   Toast,
   Tooltip,
-} from '@sparc-ui';
+} from '@tally-ui/ui';
 
 export function ButtonExample() {
   return (
@@ -142,7 +142,7 @@ export function AvatarExample() {
   return (
     <div className="flex items-center gap-2">
       <Avatar fallback="JD" size={32} />
-      <Avatar fallback="CF" size={32} />
+      <Avatar fallback="TU" size={32} />
       <Avatar fallback="AB" size={32} />
     </div>
   );

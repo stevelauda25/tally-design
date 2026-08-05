@@ -1,4 +1,4 @@
-# Pagination — SPARC Component Spec
+# Pagination — Tally Component Spec
 
 > Sumber: Figma node `96:2316` (distilled JSON + screenshot) + implementasi `pagination.tsx`.
 > Status: collected, built, showcased in POD docs as `/components/pagination`.
