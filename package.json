@@ -1,25 +1,28 @@
 {
-  "name": "tally-ui",
+  "name": "tally-ui-design-system-docs",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.1.12",
-  "description": "Small design system test environment for POD — sprint-style scope.",
-  "packageManager": "pnpm@9.7.0",
   "scripts": {
-    "dev": "pnpm -F tally-ui-docs dev",
-    "build": "pnpm build:docs",
-    "build:packages": "pnpm -F @tally-ui/tokens build && pnpm -F @tally-ui/ui build",
-    "build:docs": "pnpm build:packages && mkdir -p apps/docs/public && echo '{\"drifted\":[],\"inSync\":[],\"errors\":[]}' > apps/docs/public/figma-status.json && echo '{\"components\":[]}' > apps/docs/public/figma-manifest.json && pnpm -F tally-ui-docs build",
-    "build:centernode": "pnpm build:packages && cd centernode && npm install --no-fund --no-audit && npm run build",
-    "build:client": "cd client-test && npm install --no-fund --no-audit && npm run build",
-    "build:all": "pnpm build:docs && pnpm build:centernode && pnpm build:client",
-    "typecheck": "pnpm -r --parallel typecheck",
-    "clean": "rm -rf node_modules **/node_modules **/dist"
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck"
+  },
+  "dependencies": {
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "tsup": "^8.5.1",
-    "typescript": "^5.5.3"
-  },
-  "engines": {
-    "node": ">=18.17"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
