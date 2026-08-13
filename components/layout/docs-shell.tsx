@@ -6,21 +6,57 @@ import { DocsSidebar } from "@/components/layout/docs-sidebar";
 type DocsShellProps = {
   children: ReactNode;
   pageTitle?: string;
-  activePath?: "/" | "/getting-started";
+  activePath?: string;
+  breadcrumb?: {
+    parent: string;
+    current: string;
+  };
+  detailRail?: ReactNode;
+  smoothAnchorScroll?: boolean;
 };
 
 export function DocsShell({
   children,
   pageTitle = "Home",
   activePath = "/",
+  breadcrumb,
+  detailRail,
+  smoothAnchorScroll = false,
 }: DocsShellProps) {
+  const isDetailPage = Boolean(detailRail);
+
   return (
-    <div className="grid min-h-[886px] min-w-[1440px] grid-cols-[300px_minmax(1140px,1fr)] grid-rows-[64px_minmax(822px,1fr)] bg-background-primary">
+    <div className="grid h-dvh min-h-0 min-w-[1440px] grid-cols-[300px_minmax(1140px,1fr)] grid-rows-[64px_minmax(0,1fr)] overflow-hidden bg-background-primary">
       <DocsBrand />
-      <DocsHeader title={pageTitle} />
+      <DocsHeader title={pageTitle} breadcrumb={breadcrumb} />
       <DocsSidebar activePath={activePath} />
-      <main className="col-start-2 row-start-2 overflow-hidden py-[58px]">
-        <div className="mx-auto flex w-[680px] flex-col gap-7">{children}</div>
+      <main
+        className={`col-start-2 row-start-2 min-h-0 overflow-x-hidden overflow-y-auto ${
+          smoothAnchorScroll ? "scroll-smooth scroll-pt-7" : ""
+        } ${
+          isDetailPage
+            ? ""
+            : "py-[58px] [scrollbar-gutter:stable_both-edges]"
+        }`}
+      >
+        {isDetailPage ? (
+          <div
+            className={`grid h-max min-h-full w-[1140px] grid-cols-[840px_300px] ${
+              smoothAnchorScroll
+                ? "after:col-span-2 after:block after:h-[calc(100dvh-92px)] after:content-['']"
+                : ""
+            }`}
+          >
+            <div className="h-max min-h-full self-start px-32 py-[58px]">
+              <div className="flex w-[584px] flex-col gap-7">{children}</div>
+            </div>
+            <aside className="sticky top-0 h-[calc(100dvh-64px)] min-h-0 self-start overflow-hidden">
+              {detailRail}
+            </aside>
+          </div>
+        ) : (
+          <div className="mx-auto flex w-[680px] flex-col gap-7">{children}</div>
+        )}
       </main>
     </div>
   );

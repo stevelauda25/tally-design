@@ -26,6 +26,15 @@ const inter = localFont({
   fallback: ["Arial", "Helvetica", "sans-serif"],
 });
 
+const crimsonPro = localFont({
+  src: "./fonts/crimson-pro.ttf",
+  weight: "200 900",
+  style: "normal",
+  variable: "--font-crimson-pro",
+  display: "swap",
+  fallback: ["Georgia", "serif"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Tally UI Design System",
@@ -41,7 +50,9 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${inter.variable} antialiased`}>
+      <body
+        className={`${inter.className} ${inter.variable} ${crimsonPro.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

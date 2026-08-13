@@ -10,17 +10,30 @@ const foundationItems = [
   { label: "Radius", href: "/foundations/radius" },
   { label: "Elevation", href: "/foundations/elevation" },
   { label: "Logo", href: "/foundations/logo" },
+  { label: "Gradient", href: "/foundations/gradient" },
   { label: "Imagery", href: "/foundations/imagery" },
 ] as const;
 
+let foundationsExpandedState = false;
+
 type DocsSidebarProps = {
-  activePath?: "/" | "/getting-started";
+  activePath?: string;
 };
 
 export function DocsSidebar({ activePath = "/" }: DocsSidebarProps) {
-  const [foundationsExpanded, setFoundationsExpanded] = useState(true);
+  const [foundationsExpanded, setFoundationsExpanded] = useState(
+    foundationsExpandedState,
+  );
   const homeActive = activePath === "/";
   const gettingStartedActive = activePath === "/getting-started";
+  const changelogActive = activePath === "/changelog";
+
+  function toggleFoundations() {
+    setFoundationsExpanded((expanded) => {
+      foundationsExpandedState = !expanded;
+      return foundationsExpandedState;
+    });
+  }
 
   return (
     <aside className="col-start-1 row-start-2 p-5 shadow-[inset_-1px_0_0_var(--color-border-default)]">
@@ -53,12 +66,17 @@ export function DocsSidebar({ activePath = "/" }: DocsSidebarProps) {
             trailingIcon="/assets/icons/navigation/chevron.svg"
             expanded={foundationsExpanded}
             controls="foundations-navigation"
-            onClick={() => setFoundationsExpanded((expanded) => !expanded)}
+            onClick={toggleFoundations}
           />
           {foundationsExpanded ? (
             <div id="foundations-navigation" className="contents">
               {foundationItems.map((item) => (
-                <NavigationItem key={item.href} {...item} nested />
+                <NavigationItem
+                  key={item.href}
+                  {...item}
+                  active={activePath === item.href}
+                  nested
+                />
               ))}
             </div>
           ) : null}
@@ -66,7 +84,9 @@ export function DocsSidebar({ activePath = "/" }: DocsSidebarProps) {
 
         <NavigationItem
           label="Changelog"
+          href="/changelog"
           icon="/assets/icons/navigation/changelog.svg"
+          active={changelogActive}
         />
       </nav>
     </aside>

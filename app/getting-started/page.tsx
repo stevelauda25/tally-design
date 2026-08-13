@@ -87,14 +87,14 @@ export default function GettingStartedPage() {
 
       <section
         aria-labelledby="tokens-heading"
-        className="flex h-[260px] w-full flex-col gap-2.5 px-3"
+        className="flex h-[280px] w-full flex-col gap-2.5 px-3"
       >
         <h2 id="tokens-heading" className={`h-5 shrink-0 ${sectionHeadingClass}`}>
           How tokens work
         </h2>
-        <div className={`h-[230px] shrink-0 ${bodyClass}`}>
+        <div className={`h-[250px] shrink-0 ${bodyClass}`}>
           <p className="mb-2.5">Two layers, bridged by Tailwind:</p>
-          <ul className="mb-2.5 list-disc pl-[21px]">
+          <ul className="mb-2.5 list-disc space-y-2.5 pl-[21px]">
             <li>
               <span className="text-text-primary">Primitives</span>{" ("}
               <InlineCode>packages/tokens/src/primitives.ts</InlineCode>
@@ -133,7 +133,7 @@ export default function GettingStartedPage() {
 
       <section
         aria-labelledby="conventions-heading"
-        className="flex h-[90px] w-full flex-col gap-2.5 px-3"
+        className="flex h-[100px] w-full flex-col gap-2.5 px-3"
       >
         <h2
           id="conventions-heading"
@@ -141,7 +141,9 @@ export default function GettingStartedPage() {
         >
           Component conventions
         </h2>
-        <ul className={`h-[60px] shrink-0 list-disc pl-[21px] ${bodyClass}`}>
+        <ul
+          className={`h-[70px] shrink-0 list-disc space-y-2.5 pl-[21px] ${bodyClass}`}
+        >
           <li>
             <span className="text-text-primary">TypeScript + React 18</span>{", "}
             <InlineCode>forwardRef</InlineCode>, semicolons, plain exports.
@@ -158,12 +160,14 @@ export default function GettingStartedPage() {
 
       <section
         aria-labelledby="shipped-heading"
-        className="flex h-[90px] w-full flex-col gap-2.5 px-3"
+        className="flex h-[100px] w-full flex-col gap-2.5 px-3"
       >
         <h2 id="shipped-heading" className={`h-5 shrink-0 ${sectionHeadingClass}`}>
           {"What's shipped"}
         </h2>
-        <ul className={`h-[60px] shrink-0 list-disc pl-[21px] ${bodyClass}`}>
+        <ul
+          className={`h-[70px] shrink-0 list-disc space-y-2.5 pl-[21px] ${bodyClass}`}
+        >
           <li>
             <span className="text-text-primary">15 atoms</span> — Button, Badge,
             Checkbox, Switch, Tag, Input, Text Area, Radio, Segmented Button,

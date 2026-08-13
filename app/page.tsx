@@ -21,22 +21,28 @@ const foundations = [
     icon: "/assets/icons/foundations/spacing.svg",
   },
   {
-    title: "Radius",
-    description: "Explore the radius styles and usage guidance.",
-    href: "/foundations/radius",
-    icon: "/assets/icons/foundations/radius.svg",
-  },
-  {
     title: "Elevation",
     description: "Explore the elevation styles and usage guidance.",
     href: "/foundations/elevation",
     icon: "/assets/icons/foundations/elevation.svg",
   },
   {
+    title: "Radius",
+    description: "Explore the radius styles and usage guidance.",
+    href: "/foundations/radius",
+    icon: "/assets/icons/foundations/radius.svg",
+  },
+  {
     title: "Logo",
     description: "Explore the logo styles and usage guidance.",
     href: "/foundations/logo",
     icon: "/assets/icons/foundations/logo.svg",
+  },
+  {
+    title: "Gradient",
+    description: "Explore the gradient styles and usage guidance.",
+    href: "/foundations/gradient",
+    icon: "/assets/icons/foundations/gradient.svg",
   },
   {
     title: "Imagery",
