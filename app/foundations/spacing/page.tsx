@@ -138,12 +138,15 @@ export default function SpacingPage() {
         </h2>
         <p className="text-sm leading-5 font-normal text-text-secondary">
           Findings summarized from the external collection (
-          <span className="text-text-primary">
-            design-system-testing-abdillah/foundation/foundation.md §5
-          </span>
+          <InlineCode>
+            design-system-testing-abdillah/foundation/foundation.md
+          </InlineCode>
           {" and "}
-          <span className="text-text-primary">tokens.json → spacing.note</span>
-          ). The JSON states <span className="text-text-primary">&quot;custom&quot;: false</span>
+          <InlineCode>tokens.json</InlineCode>
+          {" → "}
+          <InlineCode>spacing.note</InlineCode>
+          {`). The JSON states `}
+          <InlineCode>{'"custom": false'}</InlineCode>
           {" — there is no spacing data to render on this page; the scale above is Tailwind&apos;s documented default, shown for reference."}
         </p>
       </section>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { IconButton } from "@/components/ui/icon-button";
 
 export function DocsBrand() {
   return (
@@ -19,7 +18,9 @@ export function DocsBrand() {
         </p>
       </div>
 
-      <IconButton label="Search" icon="/assets/icons/utility/search.svg" />
+      <code className="inline-flex items-center rounded-[6px] bg-background-secondary px-1.5 py-0.5 font-mono text-sm leading-[1.4] font-medium tracking-[0] text-text-secondary">
+        v.1.0
+      </code>
     </div>
   );
 }

@@ -49,10 +49,8 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} ${inter.variable} ${crimsonPro.variable} antialiased`}
-      >
+    <html lang="en" className={`${inter.variable} ${crimsonPro.variable}`}>
+      <body className={`${inter.className} antialiased`}>
         {children}
       </body>
     </html>

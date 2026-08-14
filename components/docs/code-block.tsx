@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 type CodeBlockHeight = 120 | 140 | 180;
 
@@ -17,8 +20,58 @@ const sizeClasses: Record<
   180: { block: "h-[180px]", body: "h-[144px]" },
 };
 
+const copiedStateDuration = 1600;
+
+const copiedIconKeyframes: Keyframe[] = [
+  { opacity: 0, transform: "scale(0.65)" },
+  { opacity: 1, offset: 0.5, transform: "scale(1.14)" },
+  { opacity: 1, offset: 0.75, transform: "scale(0.96)" },
+  { opacity: 1, transform: "scale(1)" },
+];
+
 export function CodeBlock({ language, source, height }: CodeBlockProps) {
   const size = sizeClasses[height];
+  const [copied, setCopied] = useState(false);
+  const iconRef = useRef<HTMLSpanElement>(null);
+  const resetTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimeoutRef.current !== null) {
+        window.clearTimeout(resetTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  async function copySource() {
+    try {
+      await navigator.clipboard.writeText(source);
+    } catch {
+      return;
+    }
+
+    setCopied(true);
+
+    if (resetTimeoutRef.current !== null) {
+      window.clearTimeout(resetTimeoutRef.current);
+    }
+
+    window.requestAnimationFrame(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      iconRef.current?.animate(copiedIconKeyframes, {
+        duration: 360,
+        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+      });
+    });
+
+    resetTimeoutRef.current = window.setTimeout(() => {
+      setCopied(false);
+      resetTimeoutRef.current = null;
+    }, copiedStateDuration);
+  }
 
   return (
     <div
@@ -28,15 +81,29 @@ export function CodeBlock({ language, source, height }: CodeBlockProps) {
         <span className="text-sm leading-5 font-normal tracking-[0] text-text-secondary">
           {language}
         </span>
-        <span aria-hidden="true" className="relative size-3.5 shrink-0">
-          <Image
-            src="/assets/icons/utility/copy.svg"
-            alt=""
-            width={14}
-            height={14}
-            unoptimized
-          />
-        </span>
+        <button
+          type="button"
+          aria-label={copied ? "Copied" : "Copy code"}
+          className="relative size-3.5 shrink-0 appearance-none border-0 bg-transparent p-0"
+          onClick={copySource}
+        >
+          <span ref={iconRef} aria-hidden="true" className="relative block size-3.5">
+            <Image
+              src={
+                copied
+                  ? "/assets/icons/utility/check.svg"
+                  : "/assets/icons/utility/copy.svg"
+              }
+              alt=""
+              width={14}
+              height={14}
+              unoptimized
+            />
+          </span>
+          <span role="status" className="sr-only">
+            {copied ? "Copied" : ""}
+          </span>
+        </button>
       </div>
 
       <div className={`shrink-0 overflow-hidden p-3 ${size.body}`}>

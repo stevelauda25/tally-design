@@ -154,8 +154,8 @@ export default function ColorPage() {
         </h2>
         <p className="text-sm leading-5 font-normal tracking-[0] text-text-secondary">
           These are the source-of-truth Tally UI Design System Color tokens.
-          Primitive ramps and semantic tokens render directly from
-          src/data/tally-foundation.json.
+          Primitive ramps and semantic tokens render directly from{" "}
+          <InlineCode>src/data/tally-foundation.json</InlineCode>.
         </p>
       </section>
     </DocsShell>

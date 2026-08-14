@@ -56,7 +56,8 @@ export default function RadiusPage() {
             Scale
           </h2>
           <p className="text-sm leading-5 font-normal text-text-secondary">
-            9 steps, 0px → 9999px. The same review round later extended the
+            9 steps, <span className="text-text-primary">0px → 9999px</span>. The
+            same review round later extended the
             scale with <span className="text-text-primary">none (0px)</span> for
             sharp edges, <span className="text-text-primary">2xs (2px)</span>
             {" for hairline rounding on tiny controls, "}

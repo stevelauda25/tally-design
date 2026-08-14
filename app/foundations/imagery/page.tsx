@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { InlineCode } from "@/components/docs/inline-code";
-import { FigmaAsset } from "@/components/foundations/figma-asset";
+import { FoundationMediaCard } from "@/components/foundations/foundation-media-card";
 import {
   OnThisPage,
   type OnThisPageItem,
@@ -17,6 +18,18 @@ const onThisPageItems: readonly OnThisPageItem[] = [
   { label: "Applications", href: "#applications" },
   { label: "Source of truth", href: "#source-of-truth" },
 ];
+
+const photography = [
+  ["photo-1.png", "Analog Film Editorial inventory photography example 1", "center"],
+  ["photo-2.png", "Analog Film Editorial inventory photography example 2", "center"],
+  ["photo-3.png", "Analog Film Editorial inventory photography example 3", "center"],
+  ["photo-4.png", "Analog Film Editorial inventory photography example 4", "top"],
+] as const;
+
+const applications = [
+  ["application-1.png", "Tally billboard imagery application"],
+  ["application-2.png", "Tally street-poster imagery application"],
+] as const;
 
 export default function ImageryPage() {
   return (
@@ -56,14 +69,21 @@ export default function ImageryPage() {
           </p>
         </div>
         <div className="grid h-[386px] w-full grid-cols-[287px_287px] grid-rows-[188px_188px] gap-2.5">
-          {[1, 2, 3, 4].map((index) => (
-            <FigmaAsset
-              key={index}
-              src={`/assets/foundations/imagery/photo-${index}.png`}
-              alt={`Analog Film Editorial inventory photography example ${index}`}
-              width={287}
-              height={188}
-            />
+          {photography.map(([src, alt, position]) => (
+            <FoundationMediaCard key={src} className="h-[188px] w-[287px]">
+              <Image
+                src={`/assets/foundations/imagery/${src}`}
+                alt={alt}
+                width={1448}
+                height={1086}
+                className={`absolute left-1/2 h-[215px] w-[287px] -translate-x-1/2 object-cover ${
+                  position === "top"
+                    ? "top-[-0.5px]"
+                    : "top-[calc(50%+0.5px)] -translate-y-1/2"
+                }`}
+                unoptimized
+              />
+            </FoundationMediaCard>
           ))}
         </div>
       </section>
@@ -79,8 +99,38 @@ export default function ImageryPage() {
           </p>
         </div>
         <div className="grid h-[188px] w-full grid-cols-[287px_287px] gap-2.5">
-          <FigmaAsset src="/assets/foundations/imagery/pattern-1.png" alt="Tally vertical rectangular pattern" width={287} height={188} />
-          <FigmaAsset src="/assets/foundations/imagery/pattern-2.png" alt="Tally horizontal rectangular pattern" width={287} height={188} />
+          {["pattern-1.svg", "pattern-2.svg"].map((src, index) => (
+            <FoundationMediaCard key={src} className="h-[188px] w-[287px]">
+              <span
+                aria-hidden="true"
+                className="absolute top-0 left-[71.5px] h-full border-l-[0.5px] border-dashed border-border-subtle"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute top-0 left-[215.5px] h-full border-l-[0.5px] border-dashed border-border-subtle"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute top-[22px] left-0 w-full border-t-[0.5px] border-dashed border-border-subtle"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute top-[166px] left-0 w-full border-t-[0.5px] border-dashed border-border-subtle"
+              />
+              <Image
+                src={`/assets/foundations/imagery/${src}`}
+                alt={
+                  index === 0
+                    ? "Tally vertical rectangular pattern"
+                    : "Tally horizontal rectangular pattern"
+                }
+                width={144}
+                height={144}
+                className="absolute top-1/2 left-[calc(50%+0.5px)] size-36 -translate-x-1/2 -translate-y-1/2"
+                unoptimized
+              />
+            </FoundationMediaCard>
+          ))}
         </div>
       </section>
 
@@ -89,8 +139,18 @@ export default function ImageryPage() {
           Applications
         </h2>
         <div className="grid h-[188px] w-full grid-cols-[287px_287px] gap-2.5">
-          <FigmaAsset src="/assets/foundations/imagery/application-1.png" alt="Tally billboard imagery application" width={287} height={188} />
-          <FigmaAsset src="/assets/foundations/imagery/application-2.png" alt="Tally street-poster imagery application" width={287} height={188} />
+          {applications.map(([src, alt]) => (
+            <FoundationMediaCard key={src} className="h-[188px] w-[287px]">
+              <Image
+                src={`/assets/foundations/imagery/${src}`}
+                alt={alt}
+                width={4000}
+                height={3000}
+                className="absolute top-[calc(50%+0.5px)] left-1/2 h-[215px] w-[287px] -translate-x-1/2 -translate-y-1/2 object-cover"
+                unoptimized
+              />
+            </FoundationMediaCard>
+          ))}
         </div>
       </section>
 

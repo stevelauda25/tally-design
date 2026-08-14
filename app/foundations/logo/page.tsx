@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import { InlineCode } from "@/components/docs/inline-code";
-import { FigmaAsset } from "@/components/foundations/figma-asset";
 import { FoundationTable } from "@/components/foundations/foundation-table";
+import {
+  ClearSpaceExamples,
+  FullLogoPrimary,
+  FullLogoVariants,
+  GeneralPositionExamples,
+  IncorrectUseExamples,
+  LogoApplications,
+  LogomarkPrimary,
+  LogomarkVariants,
+  MinimumSizeExamples,
+} from "@/components/foundations/logo/logo-guidance";
 import {
   OnThisPage,
   type OnThisPageItem,
@@ -18,17 +28,21 @@ const onThisPageItems: readonly OnThisPageItem[] = [
   { label: "Colors", href: "#colors" },
   { label: "Applications", href: "#applications" },
   { label: "Clear space", href: "#clear-space" },
-  { label: "Minimize Sizes", href: "#minimum-sizes" },
-  { label: "General Position", href: "#general-position" },
+  { label: "Minimize sizes", href: "#minimum-sizes" },
+  { label: "General position", href: "#general-position" },
   { label: "Please don’t...", href: "#incorrect-usage" },
   { label: "Source of truth", href: "#source-of-truth" },
 ];
 
 function Swatch({ color }: { color: string }) {
+  const isWhite = color.toLowerCase() === "#ffffff";
+
   return (
     <span
       aria-hidden="true"
-      className="h-2 w-[84px] rounded-[2px]"
+      className={`h-[18px] w-full rounded-[4px] ${
+        isWhite ? "border-[0.5px] border-border-default" : ""
+      }`}
       style={{ backgroundColor: color }}
     />
   );
@@ -61,7 +75,7 @@ export default function LogoPage() {
       <section id="full-logo" className="flex h-[538px] w-full flex-col gap-2.5">
         <div className="flex h-16 flex-col gap-1 px-3">
           <h2 className="text-sm leading-5 font-medium text-text-primary">
-            Full Logo
+            Full logo
           </h2>
           <p className="text-sm leading-5 font-normal text-text-secondary">
             Our logo consists of the{" "}
@@ -71,42 +85,22 @@ export default function LogoPage() {
             and marketing materials.
           </p>
         </div>
-        <FigmaAsset
-          src="/assets/foundations/logo/full-primary.png"
-          alt="Annotated Tally glyph and wordmark composing the primary logo"
-          width={584}
-          height={200}
-        />
-        <FigmaAsset
-          src="/assets/foundations/logo/full-variants.png"
-          alt="White and black full-logo variants"
-          width={584}
-          height={254}
-        />
+        <FullLogoPrimary />
+        <FullLogoVariants />
       </section>
 
       <section id="logomark-only" className="flex h-[538px] w-full flex-col gap-2.5">
         <div className="flex h-16 flex-col gap-1 px-3">
           <h2 className="text-sm leading-5 font-medium text-text-primary">
-            Logomark Only
+            Logomark only
           </h2>
           <p className="text-sm leading-5 font-normal text-text-secondary">
             The Tally name and symbols are key parts of our brand identity,
             helping customers recognize and trust Tally.
           </p>
         </div>
-        <FigmaAsset
-          src="/assets/foundations/logo/mark-primary.png"
-          alt="Primary Tally glyph"
-          width={584}
-          height={200}
-        />
-        <FigmaAsset
-          src="/assets/foundations/logo/mark-variants.png"
-          alt="White and black Tally glyph variants"
-          width={584}
-          height={254}
-        />
+        <LogomarkPrimary />
+        <LogomarkVariants />
       </section>
 
       <section id="colors" className="flex h-[210px] w-full flex-col gap-2.5">
@@ -123,14 +117,29 @@ export default function LogoPage() {
         <FoundationTable
           columns={[
             { label: "Variant", width: 146 },
-            { label: "Primary", width: 146 },
-            { label: "Black", width: 146 },
-            { label: "White", width: 146 },
+            { label: "Colors", width: 146 },
+            { label: "Hex", width: 146 },
+            { label: "RGB Colors", width: 146 },
           ]}
           rows={[
-            ["", <Swatch key="primary" color="#DF520C" />, <Swatch key="black" color="#000000" />, <Swatch key="white" color="#FFFFFF" />],
-            ["Hex", "#DF520C", "#000000", "#FFFFFF"],
-            ["RGB Colors", "223, 82, 12", "0, 0, 0", "255, 255, 255"],
+            [
+              "Primary",
+              <Swatch key="primary" color="#DF520C" />,
+              { content: "#DF520C", mono: true },
+              { content: "223, 82, 12", mono: true },
+            ],
+            [
+              "Black",
+              <Swatch key="black" color="#000000" />,
+              { content: "#000000", mono: true },
+              { content: "0, 0, 0", mono: true },
+            ],
+            [
+              "White",
+              <Swatch key="white" color="#FFFFFF" />,
+              { content: "#ffffff", mono: true },
+              { content: "255, 255, 255", mono: true },
+            ],
           ]}
         />
       </section>
@@ -139,12 +148,7 @@ export default function LogoPage() {
         <h2 className="h-5 px-3 text-sm leading-5 font-medium text-text-primary">
           Applications
         </h2>
-        <FigmaAsset
-          src="/assets/foundations/logo/applications.png"
-          alt="Tally logo application examples"
-          width={584}
-          height={188}
-        />
+        <LogoApplications />
       </section>
 
       <section id="clear-space" className="flex h-[262px] w-full flex-col gap-2.5">
@@ -157,54 +161,33 @@ export default function LogoPage() {
             graphics or text in the clear space shown.
           </p>
         </div>
-        <FigmaAsset
-          src="/assets/foundations/logo/clear-space.png"
-          alt="Clear-space guidance for the Tally logo and glyph"
-          width={584}
-          height={188}
-        />
+        <ClearSpaceExamples />
       </section>
 
       <section id="minimum-sizes" className="flex h-[242px] w-full flex-col gap-2.5">
         <div className="flex h-11 flex-col gap-1 px-3">
           <h2 className="text-sm leading-5 font-medium text-text-primary">
-            Minimize Sizes
+            Minimize sizes
           </h2>
           <p className="text-sm leading-5 font-normal text-text-secondary">
             The logotype should always be legible. Never use it at sizes smaller
             than specified.
           </p>
         </div>
-        <FigmaAsset
-          src="/assets/foundations/logo/minimum-sizes.png"
-          alt="Minimum logo sizes: 60px screen, 35mm or 1.375 inches print, and 16px favicon"
-          width={584}
-          height={188}
-        />
+        <MinimumSizeExamples />
       </section>
 
       <section id="general-position" className="flex h-[460px] w-full flex-col gap-2.5">
         <div className="flex h-16 flex-col gap-1 px-3">
           <h2 className="text-sm leading-5 font-medium text-text-primary">
-            General Position
+            General position
           </h2>
           <p className="text-sm leading-5 font-normal text-text-secondary">
             This general guidance applies to digital or print applications,
             including both portrait and landscape orientations.
           </p>
         </div>
-        <FigmaAsset
-          src="/assets/foundations/logo/position-primary.png"
-          alt="Recommended Tally logo positions"
-          width={584}
-          height={188}
-        />
-        <FigmaAsset
-          src="/assets/foundations/logo/position-secondary.png"
-          alt="Additional recommended Tally logo positions"
-          width={584}
-          height={188}
-        />
+        <GeneralPositionExamples />
       </section>
 
       <section id="incorrect-usage" className="flex h-[638px] w-full flex-col gap-2.5">
@@ -216,9 +199,7 @@ export default function LogoPage() {
             Avoid these common mistakes to maintain brand integrity.
           </p>
         </div>
-        <FigmaAsset src="/assets/foundations/logo/dont-row-1.png" alt="Do not change the logo color or squash the logo" width={584} height={188} />
-        <FigmaAsset src="/assets/foundations/logo/dont-row-2.png" alt="Do not outline the logo or fill it with gradients" width={584} height={188} />
-        <FigmaAsset src="/assets/foundations/logo/dont-row-3.png" alt="Do not place the logo over a busy background or skew it" width={584} height={188} />
+        <IncorrectUseExamples />
       </section>
 
       <section id="source-of-truth" className="flex h-16 w-full flex-col gap-1 px-3">

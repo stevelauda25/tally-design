@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export type OnThisPageItem = {
   label: string;
@@ -22,9 +22,41 @@ function sectionId(href: string) {
   return href.slice(1);
 }
 
+const indicatorSpring =
+  "linear(0, 0.064, 0.238, 0.46, 0.674, 0.841, 0.949, 1.007, 1.028, 1.026, 1.017, 1.008, 1.002, 1)";
+
 export function OnThisPage({ items }: OnThisPageProps) {
   const [activeHref, setActiveHref] = useState(items[0]?.href ?? "");
   const anchorSelectionRef = useRef<AnchorSelection | null>(null);
+  const indicatorRef = useRef<HTMLSpanElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const rowRefs = useRef(new Map<OnThisPageItem["href"], HTMLAnchorElement>());
+
+  useLayoutEffect(() => {
+    const indicator = indicatorRef.current;
+    const activeRow = rowRefs.current.get(activeHref);
+
+    if (!indicator || !activeRow) {
+      return;
+    }
+
+    const updateIndicatorGeometry = () => {
+      indicator.style.height = `${activeRow.offsetHeight}px`;
+      indicator.style.transform = `translate3d(0, ${activeRow.offsetTop}px, 0)`;
+    };
+
+    updateIndicatorGeometry();
+
+    const resizeObserver = new ResizeObserver(updateIndicatorGeometry);
+
+    if (navRef.current) {
+      resizeObserver.observe(navRef.current);
+    }
+
+    rowRefs.current.forEach((row) => resizeObserver.observe(row));
+
+    return () => resizeObserver.disconnect();
+  }, [activeHref, items]);
 
   useEffect(() => {
     const scrollContainer = document.querySelector<HTMLElement>("main");
@@ -139,10 +171,22 @@ export function OnThisPage({ items }: OnThisPageProps) {
         </p>
       </div>
 
-      <nav aria-label="On this page" className="relative flex w-full flex-col">
+      <nav
+        ref={navRef}
+        aria-label="On this page"
+        className="relative flex w-full flex-col"
+      >
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 w-px bg-border-default"
+        />
+        <span
+          ref={indicatorRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 left-0 h-8 w-px bg-border-focus transition-[transform] duration-[480ms] motion-reduce:transition-none"
+          style={{
+            transitionTimingFunction: indicatorSpring,
+          }}
         />
         {items.map((item) => {
           const active = activeHref === item.href;
@@ -150,18 +194,19 @@ export function OnThisPage({ items }: OnThisPageProps) {
           return (
             <a
               key={item.href}
+              ref={(row) => {
+                if (row) {
+                  rowRefs.current.set(item.href, row);
+                } else {
+                  rowRefs.current.delete(item.href);
+                }
+              }}
               href={item.href}
               className={`relative flex min-h-8 w-full shrink-0 items-center py-1.5 text-sm leading-5 font-normal tracking-[0] hover:text-text-primary ${
                 item.nested ? "px-6" : "px-4"
               } ${active ? "text-text-primary" : "text-text-secondary"}`}
               onClick={() => selectAnchor(item.href)}
             >
-              {active ? (
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-y-0 left-0 w-px bg-border-focus"
-                />
-              ) : null}
               {item.label}
             </a>
           );

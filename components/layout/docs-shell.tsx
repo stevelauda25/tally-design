@@ -40,13 +40,7 @@ export function DocsShell({
         }`}
       >
         {isDetailPage ? (
-          <div
-            className={`grid h-max min-h-full w-[1140px] grid-cols-[840px_300px] ${
-              smoothAnchorScroll
-                ? "after:col-span-2 after:block after:h-[calc(100dvh-92px)] after:content-['']"
-                : ""
-            }`}
-          >
+          <div className="grid h-max min-h-full w-[1140px] grid-cols-[840px_300px]">
             <div className="h-max min-h-full self-start px-32 py-[58px]">
               <div className="flex w-[584px] flex-col gap-7">{children}</div>
             </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { FigmaAsset } from "@/components/foundations/figma-asset";
+import Image from "next/image";
+import { FoundationMediaCard } from "@/components/foundations/foundation-media-card";
 import { FoundationTable } from "@/components/foundations/foundation-table";
 import {
   OnThisPage,
@@ -13,10 +14,10 @@ export const metadata: Metadata = {
 
 const onThisPageItems: readonly OnThisPageItem[] = [
   { label: "Gradient signature texture", href: "#gradient-signature-texture" },
-  { label: "Asset Specs", href: "#asset-specs" },
+  { label: "Asset specs", href: "#asset-specs" },
   { label: "Usage", href: "#usage" },
   {
-    label: "Dominant Palette (for reference/matching)",
+    label: "Dominant palette (for reference/matching)",
     href: "#dominant-palette",
   },
   { label: "Source of truth", href: "#source-of-truth" },
@@ -69,24 +70,32 @@ export default function GradientPage() {
           </p>
         </div>
         <div className="grid h-[287px] w-full grid-cols-[287px_287px] gap-2.5">
-          <FigmaAsset
-            src="/assets/foundations/gradient/texture-1.png"
-            alt="Tally orange mesh gradient texture with grain"
-            width={287}
-            height={287}
-          />
-          <FigmaAsset
-            src="/assets/foundations/gradient/texture-2.png"
-            alt="Tally orange and deep-brown mesh gradient texture with grain"
-            width={287}
-            height={287}
-          />
+          <FoundationMediaCard className="h-[287px] w-[287px]">
+            <Image
+              src="/assets/foundations/gradient/texture-1.jpg"
+              alt="Tally orange mesh gradient texture with grain"
+              width={4000}
+              height={4000}
+              className="size-full object-cover"
+              unoptimized
+            />
+          </FoundationMediaCard>
+          <FoundationMediaCard className="h-[287px] w-[287px]">
+            <Image
+              src="/assets/foundations/gradient/texture-2.jpg"
+              alt="Tally orange and deep-brown mesh gradient texture with grain"
+              width={4000}
+              height={4000}
+              className="size-full object-cover"
+              unoptimized
+            />
+          </FoundationMediaCard>
         </div>
       </section>
 
       <section id="asset-specs" className="flex h-[200px] w-full flex-col gap-2.5">
         <h2 className="h-5 px-3 text-sm leading-5 font-medium text-text-primary">
-          Asset Specs
+          Asset specs
         </h2>
         <FoundationTable
           columns={[
@@ -119,7 +128,7 @@ export default function GradientPage() {
 
       <section id="dominant-palette" className="flex h-[250px] w-full flex-col gap-2.5">
         <h2 className="h-5 px-3 text-sm leading-5 font-medium text-text-primary">
-          Dominant Palette (for reference/matching)
+          Dominant palette (for reference/matching)
         </h2>
         <FoundationTable
           columns={[
@@ -157,8 +166,8 @@ export default function GradientPage() {
         </h2>
         <p className="text-sm leading-5 font-normal text-text-secondary">
           This texture is sourced from the master gradient asset file (not a
-          live Figma gradient style) at node 369:4. Always reference the exported
-          image asset directly rather than reproducing it via code.
+          live Figma gradient style) at node 2206:12975. Always reference the
+          exported image asset directly rather than reproducing it via code.
         </p>
       </section>
     </DocsShell>
