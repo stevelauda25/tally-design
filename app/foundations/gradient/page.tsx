@@ -72,20 +72,20 @@ export default function GradientPage() {
         <div className="grid h-[287px] w-full grid-cols-[287px_287px] gap-2.5">
           <FoundationMediaCard className="h-[287px] w-[287px]">
             <Image
-              src="/assets/foundations/gradient/texture-1.jpg"
+              src="/assets/foundations/gradient/texture-1.png"
               alt="Tally orange mesh gradient texture with grain"
-              width={4000}
-              height={4000}
+              width={1920}
+              height={1920}
               className="size-full object-cover"
               unoptimized
             />
           </FoundationMediaCard>
           <FoundationMediaCard className="h-[287px] w-[287px]">
             <Image
-              src="/assets/foundations/gradient/texture-2.jpg"
+              src="/assets/foundations/gradient/texture-2.png"
               alt="Tally orange and deep-brown mesh gradient texture with grain"
-              width={4000}
-              height={4000}
+              width={1920}
+              height={1920}
               className="size-full object-cover"
               unoptimized
             />

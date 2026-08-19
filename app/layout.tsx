@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
+import { themeStorageKey } from "@/lib/theme";
 import "./globals.css";
 
 const inter = localFont({
@@ -47,9 +48,31 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
+const themeInitializationScript = `
+  (() => {
+    let theme = "light";
+
+    try {
+      const storedTheme = window.localStorage.getItem("${themeStorageKey}");
+      if (storedTheme === "light" || storedTheme === "dark") {
+        theme = storedTheme;
+      }
+    } catch {}
+
+    document.documentElement.dataset.theme = theme;
+  })();
+`;
+
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${inter.variable} ${crimsonPro.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${crimsonPro.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} />
+      </head>
       <body className={`${inter.className} antialiased`}>
         {children}
       </body>

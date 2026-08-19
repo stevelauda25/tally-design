@@ -1,5 +1,6 @@
 import Link from "next/link";
-import type { CSSProperties, MouseEventHandler } from "react";
+import type { MouseEventHandler } from "react";
+import { IconMask } from "@/components/ui/icon-mask";
 
 type NavigationItemProps = {
   label: string;
@@ -12,33 +13,6 @@ type NavigationItemProps = {
   controls?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
-
-function NavigationIcon({
-  src,
-  flipped = false,
-}: {
-  src: string;
-  flipped?: boolean;
-}) {
-  const maskStyles: CSSProperties = {
-    WebkitMaskImage: `url(${src})`,
-    maskImage: `url(${src})`,
-    WebkitMaskPosition: "center",
-    maskPosition: "center",
-    WebkitMaskRepeat: "no-repeat",
-    maskRepeat: "no-repeat",
-    WebkitMaskSize: "contain",
-    maskSize: "contain",
-  };
-
-  return (
-    <span
-      aria-hidden="true"
-      className={`size-3.5 shrink-0 bg-current ${flipped ? "-scale-y-100" : ""}`}
-      style={maskStyles}
-    />
-  );
-}
 
 export function NavigationItem({
   label,
@@ -60,11 +34,11 @@ export function NavigationItem({
   const content = (
     <>
       {icon ? (
-        <NavigationIcon src={icon} />
+        <IconMask src={icon} />
       ) : null}
       <span className="min-w-0 flex-1 text-left">{label}</span>
       {trailingIcon ? (
-        <NavigationIcon src={trailingIcon} flipped={expanded} />
+        <IconMask src={trailingIcon} flipped={expanded} />
       ) : null}
     </>
   );

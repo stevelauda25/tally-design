@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { FoundationIcon } from "@/components/home/foundation-icon";
 
 type FoundationCardProps = {
   title: string;
@@ -20,13 +20,9 @@ export function FoundationCard({
       className="relative flex h-[184px] w-[220px] flex-col overflow-hidden rounded-card bg-background-subtle shadow-card hover:bg-background-secondary"
     >
       <div className="h-24 shrink-0 border-b-[0.5px] border-dashed border-border-default p-3">
-        <Image
-          className="size-3.5 shrink-0"
+        <FoundationIcon
+          className="size-3.5 text-text-secondary"
           src={icon}
-          alt=""
-          width={14}
-          height={14}
-          unoptimized
         />
       </div>
       <div className="flex h-[88px] shrink-0 flex-col gap-1 overflow-hidden p-3 text-sm leading-5 tracking-[0]">

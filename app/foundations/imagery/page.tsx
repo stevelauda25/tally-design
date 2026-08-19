@@ -100,34 +100,44 @@ export default function ImageryPage() {
         </div>
         <div className="grid h-[188px] w-full grid-cols-[287px_287px] gap-2.5">
           {["pattern-1.svg", "pattern-2.svg"].map((src, index) => (
-            <FoundationMediaCard key={src} className="h-[188px] w-[287px]">
+            <FoundationMediaCard
+              key={src}
+              className="h-[188px] w-[287px] bg-[#fafafa]"
+            >
               <span
                 aria-hidden="true"
-                className="absolute top-0 left-[71.5px] h-full border-l-[0.5px] border-dashed border-border-subtle"
+                className="absolute top-0 left-[71.5px] h-full border-l-[0.5px] border-dashed border-[#0000000d]"
               />
               <span
                 aria-hidden="true"
-                className="absolute top-0 left-[215.5px] h-full border-l-[0.5px] border-dashed border-border-subtle"
+                className="absolute top-0 left-[215.5px] h-full border-l-[0.5px] border-dashed border-[#0000000d]"
               />
               <span
                 aria-hidden="true"
-                className="absolute top-[22px] left-0 w-full border-t-[0.5px] border-dashed border-border-subtle"
+                className="absolute top-[22px] left-0 w-full border-t-[0.5px] border-dashed border-[#0000000d]"
               />
               <span
                 aria-hidden="true"
-                className="absolute top-[166px] left-0 w-full border-t-[0.5px] border-dashed border-border-subtle"
+                className="absolute top-[166px] left-0 w-full border-t-[0.5px] border-dashed border-[#0000000d]"
               />
-              <Image
-                src={`/assets/foundations/imagery/${src}`}
-                alt={
+              <span
+                role="img"
+                aria-label={
                   index === 0
                     ? "Tally vertical rectangular pattern"
                     : "Tally horizontal rectangular pattern"
                 }
-                width={144}
-                height={144}
-                className="absolute top-1/2 left-[calc(50%+0.5px)] size-36 -translate-x-1/2 -translate-y-1/2"
-                unoptimized
+                className="absolute top-1/2 left-[calc(50%+0.5px)] size-36 -translate-x-1/2 -translate-y-1/2 bg-current text-text-primary"
+                style={{
+                  WebkitMaskImage: `url(/assets/foundations/imagery/${src})`,
+                  maskImage: `url(/assets/foundations/imagery/${src})`,
+                  WebkitMaskPosition: "center",
+                  maskPosition: "center",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
+                  WebkitMaskSize: "contain",
+                  maskSize: "contain",
+                }}
               />
             </FoundationMediaCard>
           ))}

@@ -1,4 +1,4 @@
-import { IconButton } from "@/components/ui/icon-button";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 type DocsHeaderProps = {
   title: string;
@@ -23,7 +23,7 @@ export function DocsHeader({ title, breadcrumb }: DocsHeaderProps) {
         </p>
       )}
 
-      <IconButton label="Theme" icon="/assets/icons/utility/theme.svg" />
+      <ThemeToggle />
     </header>
   );
 }

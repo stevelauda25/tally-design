@@ -97,8 +97,8 @@ export default function TypographyPage() {
           columns={[
             { label: "Token", width: 107 },
             { label: "Size", width: 87 },
-            { label: "Line height", width: 87 },
-            { label: "Sample", width: 303 },
+            { label: "Line height", width: 88 },
+            { label: "Sample", width: 302 },
           ]}
           rowHeights={scaleRowHeights}
           rows={foundationData.typography.scale.map((item) => [

@@ -42,7 +42,7 @@ function HorizontalGuide({ top }: { top: string }) {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute left-0 w-full border-t-[0.5px] border-dashed border-border-subtle"
+      className="pointer-events-none absolute left-0 w-full border-t-[0.5px] border-dashed border-[#0000000d]"
       style={{ top }}
     />
   );
@@ -52,7 +52,7 @@ function VerticalGuide({ left }: { left: string }) {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute top-0 h-full border-l-[0.5px] border-dashed border-border-subtle"
+      className="pointer-events-none absolute top-0 h-full border-l-[0.5px] border-dashed border-[#0000000d]"
       style={{ left }}
     />
   );
@@ -80,7 +80,7 @@ function FramedCard({
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-card bg-background-subtle shadow-card ${className}`}
+      className={`relative overflow-hidden rounded-card bg-[#fafafa] shadow-card ${className}`}
     >
       {children}
       <CardBorder />
@@ -97,7 +97,7 @@ function VariantCard({
   title,
   description,
 }: {
-  background: "dark" | "light";
+  background: "dark" | "dark-subtle" | "light";
   logo: string;
   logoAlt: string;
   logoWidth: number;
@@ -109,7 +109,11 @@ function VariantCard({
     <FramedCard className="flex h-[254px] flex-col bg-background-primary">
       <div
         className={`flex h-[200px] shrink-0 items-center justify-center border-b-[0.5px] border-border-default ${
-          background === "dark" ? "bg-black" : "bg-background-subtle"
+          background === "dark-subtle"
+            ? "bg-[#1a1a1a]"
+            : background === "dark"
+              ? "bg-black"
+              : "bg-[#fafafa]"
         }`}
       >
         <LogoAsset
@@ -145,7 +149,7 @@ export function FullLogoVariants() {
   return (
     <div className="grid h-[254px] w-full grid-cols-2 gap-2.5">
       <VariantCard
-        background="dark"
+        background="dark-subtle"
         logo="full-white.svg"
         logoAlt="White Tally logo"
         logoWidth={174}
@@ -201,7 +205,7 @@ export function LogomarkVariants() {
   return (
     <div className="grid h-[254px] w-full grid-cols-2 gap-2.5">
       <VariantCard
-        background="dark"
+        background="dark-subtle"
         logo="mark-white.svg"
         logoAlt="White Tally logomark"
         logoWidth={89}
@@ -296,7 +300,7 @@ export function MinimumSizeExamples() {
           />
           <span
             aria-hidden="true"
-            className="absolute top-[75px] left-1/2 h-[38px] w-[60px] -translate-x-1/2 border-y-[0.5px] border-dashed border-border-default"
+            className="absolute top-[75px] left-1/2 h-[38px] w-[60px] -translate-x-1/2 border-y-[0.5px] border-dashed border-[#0000001a]"
           />
           <p className="absolute top-[120px] w-full text-center text-xs leading-[18px] font-medium text-background-accent">
             {value}
@@ -375,7 +379,11 @@ function IncorrectUseCard({
 }: IncorrectUse) {
   return (
     <FramedCard className="flex h-[188px] flex-col bg-background-primary">
-      <div className="relative h-[154px] shrink-0 overflow-hidden border-b-[0.5px] border-border-default bg-background-subtle">
+      <div
+        className={`relative h-[154px] shrink-0 overflow-hidden border-b-[0.5px] border-border-default bg-[#fafafa] ${
+          busy ? "[[data-theme=dark]_&]:border-b-0" : ""
+        }`}
+      >
         {busy ? (
           <span className="absolute top-[calc(50%-151.25px)] left-1/2 h-[479px] w-[609px] -translate-x-1/2 -translate-y-1/2">
             <LogoAsset

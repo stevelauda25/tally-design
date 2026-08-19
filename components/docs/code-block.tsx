@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type CodeBlockHeight = 120 | 140 | 180;
@@ -28,6 +27,20 @@ const copiedIconKeyframes: Keyframe[] = [
   { opacity: 1, offset: 0.75, transform: "scale(0.96)" },
   { opacity: 1, transform: "scale(1)" },
 ];
+
+function CodeBlockIcon({ src }: { src: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      viewBox="0 0 14 14"
+      fill="none"
+      className="size-3.5 shrink-0 text-text-primary"
+    >
+      <use href={`${src}#Frame`} />
+    </svg>
+  );
+}
 
 export function CodeBlock({ language, source, height }: CodeBlockProps) {
   const size = sizeClasses[height];
@@ -88,16 +101,12 @@ export function CodeBlock({ language, source, height }: CodeBlockProps) {
           onClick={copySource}
         >
           <span ref={iconRef} aria-hidden="true" className="relative block size-3.5">
-            <Image
+            <CodeBlockIcon
               src={
                 copied
                   ? "/assets/icons/utility/check.svg"
                   : "/assets/icons/utility/copy.svg"
               }
-              alt=""
-              width={14}
-              height={14}
-              unoptimized
             />
           </span>
           <span role="status" className="sr-only">

@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { IconMask } from "@/components/ui/icon-mask";
 
 export type OnThisPageItem = {
   label: string;
@@ -159,12 +159,9 @@ export function OnThisPage({ items }: OnThisPageProps) {
   return (
     <div className="flex h-full w-full flex-col gap-0.5 py-[54px]">
       <div className="flex h-8 w-full shrink-0 items-center gap-0.5 py-1.5">
-        <Image
+        <IconMask
           src="/assets/icons/navigation/on-this-page.svg"
-          alt=""
-          width={14}
-          height={14}
-          unoptimized
+          className="size-3.5 text-text-tertiary"
         />
         <p className="min-w-0 flex-1 text-sm leading-5 font-normal tracking-[0] text-text-tertiary">
           On this page

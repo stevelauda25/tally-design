@@ -18,6 +18,11 @@ const onThisPageItems: readonly OnThisPageItem[] = [
   { label: "Source of truth", href: "#source-of-truth" },
 ];
 
+const shadowRows = [
+  foundationData.elevation.slice(0, 2),
+  foundationData.elevation.slice(2, 4),
+];
+
 export default function ElevationPage() {
   return (
     <DocsShell
@@ -63,20 +68,24 @@ export default function ElevationPage() {
         </div>
 
         <div className="flex h-[740px] w-full flex-col gap-2.5">
-          <div className="relative grid h-[560px] w-full grid-cols-2 gap-6 overflow-hidden rounded-card bg-background-primary p-6 shadow-card">
-            {foundationData.elevation.map((item) => (
-              <div key={item.token} className="flex h-[244px] min-w-0 flex-col items-center gap-4">
-                <div
-                  className="relative flex h-[120px] w-full shrink-0 items-center justify-center rounded-card border-[0.5px] border-border-default bg-background-primary"
-                  style={{ boxShadow: item.value }}
-                >
-                  <code className="font-mono text-xs leading-[18px] font-normal text-text-secondary">
-                    {item.token}
-                  </code>
-                </div>
-                <code className="w-full break-words text-center font-mono text-xs leading-[18px] font-normal text-text-tertiary">
-                  box-shadow: {item.value};
-                </code>
+          <div className="relative flex h-[560px] w-full flex-col gap-6 overflow-hidden rounded-card bg-background-primary p-6 shadow-card">
+            {shadowRows.map((row, rowIndex) => (
+              <div key={rowIndex} className="flex w-full shrink-0 items-start gap-6">
+                {row.map((item) => (
+                  <div key={item.token} className="flex min-w-0 flex-1 flex-col items-center gap-4">
+                    <div
+                      className="relative flex h-[120px] w-full shrink-0 items-center justify-center rounded-card border-[0.5px] border-border-default bg-background-primary"
+                      style={{ boxShadow: item.value }}
+                    >
+                      <code className="font-mono text-xs leading-[18px] font-normal text-text-secondary">
+                        {item.token}
+                      </code>
+                    </div>
+                    <code className="w-full break-words text-center font-mono text-xs leading-[18px] font-normal text-text-tertiary">
+                      box-shadow: {item.value};
+                    </code>
+                  </div>
+                ))}
               </div>
             ))}
             <span className="pointer-events-none absolute inset-0 rounded-[inherit] border-[0.5px] border-border-default" />
