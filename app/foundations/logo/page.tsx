@@ -144,7 +144,7 @@ export default function LogoPage() {
         />
       </section>
 
-      <section id="applications" className="flex h-[218px] w-full flex-col gap-2.5">
+      <section id="applications" className="flex h-[416px] w-full flex-col gap-2.5">
         <h2 className="h-5 px-3 text-sm leading-5 font-medium text-text-primary">
           Applications
         </h2>

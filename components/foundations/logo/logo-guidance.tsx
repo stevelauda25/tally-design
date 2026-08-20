@@ -234,19 +234,31 @@ export function LogoApplications() {
   ] as const;
 
   return (
-    <div className="grid h-[188px] w-full grid-cols-3 gap-2.5">
-      {applications.map(([src, alt, size]) => (
-        <FramedCard key={src} className="h-[188px]">
-          <Image
-            src={`${assetRoot}/${src}`}
-            alt={alt}
-            width={size}
-            height={size}
-            className="size-full object-cover"
-            unoptimized
-          />
-        </FramedCard>
-      ))}
+    <div className="flex h-[386px] w-full flex-col gap-2.5">
+      <div className="grid h-[188px] w-full grid-cols-3 gap-2.5">
+        {applications.map(([src, alt, size]) => (
+          <FramedCard key={src} className="h-[188px]">
+            <Image
+              src={`${assetRoot}/${src}`}
+              alt={alt}
+              width={size}
+              height={size}
+              className="size-full object-cover"
+              unoptimized
+            />
+          </FramedCard>
+        ))}
+      </div>
+      <FramedCard className="h-[188px] w-full">
+        <Image
+          src={`${assetRoot}/application-variants-flat.png`}
+          alt="Orange, dark, and light Tally application icon variants"
+          width={11680}
+          height={3760}
+          className="size-full object-cover"
+          unoptimized
+        />
+      </FramedCard>
     </div>
   );
 }

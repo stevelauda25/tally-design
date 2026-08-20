@@ -1,13 +1,25 @@
-import { IconMask } from "@/components/ui/icon-mask";
+import Image from "next/image";
 
 export function DocsBrand() {
   return (
     <div className="col-start-1 row-start-1 flex h-16 items-center justify-between px-5 py-4 shadow-[inset_-1px_0_0_var(--color-border-default),inset_0_-1px_0_var(--color-border-default)]">
       <div className="flex h-8 items-center">
-        <IconMask
-          src="/assets/brand/tally-ui.svg"
-          className="h-8 w-[34px] text-text-primary"
-        />
+        <div className="flex h-8 w-[34px] shrink-0 items-center justify-center">
+          <Image
+            src="/assets/brand/tally-ui.svg"
+            alt=""
+            width={20}
+            height={20}
+            className="size-5 [[data-theme=dark]_&]:hidden"
+          />
+          <Image
+            src="/assets/brand/tally-ui-dark.svg"
+            alt=""
+            width={20}
+            height={20}
+            className="hidden size-5 [[data-theme=dark]_&]:block"
+          />
+        </div>
         <p className="whitespace-nowrap text-sm leading-5 tracking-[0]">
           <span className="font-semibold text-text-primary">Tally UI</span>
           <span className="font-normal text-text-secondary"> Design System</span>
