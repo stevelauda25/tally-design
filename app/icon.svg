@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+  <style>
+    .favicon-dark { display: none; }
+    @media (prefers-color-scheme: dark) {
+      .favicon-light { display: none; }
+      .favicon-dark { display: inline; }
+    }
+  </style>
+
+  <defs>
+    <path id="light-corner-bottom" d="M12.6396 12.9676 12.6399 12.9503C12.649 12.5882 12.9455 12.2974 13.3098 12.2974H14.7091L14.7264 12.2977C15.0828 12.3067 15.3701 12.5939 15.3791 12.9503L15.3793 12.9676V14.3669C15.3793 14.7313 15.0886 15.0277 14.7264 15.0369L14.7091 15.0371H13.3098C12.9397 15.0371 12.6397 14.7371 12.6396 14.3669V12.9676Z"/>
+    <path id="light-corner-top" d="M4.33887 4.69225 4.33908 4.67495C4.34826 4.31281 4.64471 4.02206 5.00906 4.02206H6.40833L6.42564 4.02227C6.78203 4.03131 7.06928 4.31856 7.07831 4.67495L7.07853 4.69225V6.09152C7.07853 6.45588 6.78778 6.75232 6.42564 6.7615L6.40833 6.76172H5.00906C4.63892 6.76172 4.33887 6.46166 4.33887 6.09152V4.69225Z"/>
+    <path id="light-mark-back" d="M14.6998 3.83008C15.1749 3.83008 15.56 4.2152 15.56 4.69027V6.08954L15.5599 6.10066C15.5539 6.57061 15.1711 6.94974 14.6998 6.94974H13.3874C13.1051 6.94974 12.8343 7.06189 12.6346 7.26154 12.435 7.46118 12.3229 7.73195 12.3229 8.01428V10.8734L12.3228 10.8878C12.315 11.4971 11.8187 11.9886 11.2076 11.9886H8.3666C8.07267 11.9886 7.79077 12.1054 7.58293 12.3132 7.37509 12.5211 7.25833 12.803 7.25833 13.0969V14.3656L7.25826 14.3767C7.25235 14.8429 6.8755 15.2198 6.40926 15.2257L6.39814 15.2258H4.99887C4.52379 15.2258 4.13867 14.8406 4.13867 14.3656V12.9663C4.13868 12.4912 4.5238 12.1061 4.99887 12.1061H6.31331L6.32672 12.106C6.60814 12.1025 6.87729 11.9892 7.07656 11.79 7.27899 11.5875 7.39272 11.313 7.39272 11.0267V8.17376C7.39272 7.55782 7.89203 7.0585 8.50798 7.0585H11.3609C11.6472 7.0585 11.9217 6.94477 12.1242 6.74234 12.3234 6.54308 12.4367 6.27393 12.4402 5.9925L12.4403 5.9791V4.69027C12.4403 4.2152 12.8255 3.83008 13.3005 3.83008H14.6998Z"/>
+    <path id="light-mark-front" d="M15.4647 6.09024C15.4647 6.51285 15.1221 6.85544 14.6995 6.85544H13.3871C13.0796 6.85544 12.7847 6.97761 12.5672 7.19506 12.3497 7.41252 12.2276 7.70745 12.2276 8.01498V10.8741C12.2276 11.4376 11.7708 11.8943 11.2073 11.8943H8.36634C8.04721 11.8943 7.74115 12.0211 7.51549 12.2468 7.28983 12.4724 7.16306 12.7785 7.16306 13.0976V14.3663C7.16306 14.7889 6.82047 15.1315 6.39786 15.1315H4.9986C4.57599 15.1315 4.2334 14.7889 4.2334 14.3663V12.967C4.2334 12.5444 4.57599 12.2018 4.9986 12.2018H6.31304C6.62451 12.2018 6.92322 12.0781 7.14347 11.8578 7.36371 11.6376 7.48744 11.3389 7.48744 11.0274V8.17446C7.48744 7.61099 7.94423 7.1542 8.50771 7.1542H11.3606C11.6721 7.1542 11.9708 7.03047 12.1911 6.81023 12.4113 6.58998 12.5351 6.29127 12.5351 5.9798V4.69098C12.5351 4.26837 12.8776 3.92578 13.3002 3.92578H14.6995C15.1221 3.92578 15.4647 4.26837 15.4647 4.69098V6.09024Z"/>
+
+    <path id="dark-corner-bottom" d="M785 825.328 785.014 824.235C785.593 801.363 804.316 783 827.328 783H915.703L916.796 783.014C939.305 783.584 957.447 801.726 958.018 824.235L958.031 825.328V913.703C958.031 936.715 939.668 955.438 916.796 956.018L915.703 956.031H827.328C803.951 956.031 785 937.08 785 913.703V825.328Z"/>
+    <path id="dark-corner-top" d="M248 290.328 248.014 289.235C248.593 266.363 267.316 248 290.328 248H378.703L379.796 248.014C402.305 248.584 420.447 266.726 421.018 289.235L421.031 290.328V378.703C421.031 401.715 402.668 420.438 379.796 421.018L378.703 421.031H290.328C266.951 421.031 248 402.08 248 378.703V290.328Z"/>
+    <path id="dark-mark-back" d="M908.803 242C938.807 242 963.131 266.324 963.131 296.328V384.703L963.126 385.405C962.75 415.086 938.573 439.031 908.803 439.031H825.915C808.083 439.031 790.982 446.115 778.373 458.724 765.764 471.332 758.681 488.434 758.681 506.266V686.84L758.675 687.75C758.187 726.232 726.841 757.277 688.243 757.277H508.812C490.248 757.277 472.444 764.652 459.317 777.779 446.191 790.906 438.816 808.71 438.816 827.274V907.399L438.812 908.102C438.438 937.549 414.638 961.35 385.19 961.723L384.488 961.728H296.113C266.109 961.727 241.785 937.404 241.785 907.399V819.024C241.785 789.02 266.109 764.696 296.113 764.696H379.131L379.978 764.691C397.752 764.471 414.751 757.314 427.336 744.729 440.121 731.945 447.304 714.604 447.304 696.523V516.338C447.304 477.436 478.84 445.9 517.741 445.9H697.927C716.007 445.9 733.348 438.718 746.133 425.933 758.718 413.348 765.874 396.349 766.095 378.574L766.1 377.728V296.328C766.1 266.323 790.424 242 820.429 242H908.803Z"/>
+    <path id="dark-mark-front" d="M957.131 384.703C957.131 411.394 935.494 433.031 908.803 433.031H825.915C806.492 433.031 787.865 440.747 774.131 454.481 760.397 468.215 752.681 486.842 752.681 506.265V686.84C752.681 722.428 723.831 751.277 688.243 751.277H508.813C488.657 751.277 469.327 759.284 455.075 773.536 440.823 787.789 432.816 807.119 432.816 827.274V907.399C432.816 934.09 411.179 955.728 384.488 955.728H296.113C269.422 955.728 247.785 934.09 247.785 907.399V819.025C247.785 792.334 269.422 770.697 296.113 770.697H379.131C398.803 770.697 417.669 762.882 431.579 748.972 445.489 735.062 453.304 716.195 453.304 696.524V516.338C453.304 480.75 482.153 451.9 517.741 451.9H697.927C717.599 451.9 736.465 444.086 750.375 430.175 764.285 416.265 772.1 397.399 772.1 377.727V296.328C772.1 269.637 793.737 248 820.428 248H908.803C935.494 248 957.131 269.637 957.131 296.328V384.703Z"/>
+
+    <linearGradient id="light-tile" x1="9.84863" y1="0.03125" x2="9.84863" y2="19.0312" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#535353"/>
+      <stop offset=".5" stop-color="#222222"/>
+      <stop offset="1" stop-color="#1B1B1B"/>
+    </linearGradient>
+    <linearGradient id="light-corner-bottom-back" x1="12.4745" y1="12.2031" x2="15.1503" y2="14.871" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#6C6C6C"/>
+    </linearGradient>
+    <linearGradient id="light-corner-bottom-face" x1="15.1017" y1="14.807" x2="12.5051" y2="11.8937" gradientUnits="userSpaceOnUse">
+      <stop offset=".105416" stop-color="white" stop-opacity=".09"/>
+      <stop offset=".95878" stop-color="#6C6C6C"/>
+    </linearGradient>
+    <radialGradient id="light-corner-bottom-highlight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(15.6084 14.6408) rotate(20.9611) scale(1.70402)">
+      <stop stop-color="white" stop-opacity=".8"/>
+      <stop offset=".95878" stop-color="#6C6C6C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="light-corner-top-back" x1="4.17177" y1="3.92578" x2="6.8476" y2="6.5937" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#6C6C6C"/>
+    </linearGradient>
+    <linearGradient id="light-corner-top-face" x1="6.80095" y1="6.53164" x2="4.20428" y2="3.61831" gradientUnits="userSpaceOnUse">
+      <stop offset=".105416" stop-color="white" stop-opacity=".09"/>
+      <stop offset=".95878" stop-color="#6C6C6C"/>
+    </linearGradient>
+    <radialGradient id="light-corner-top-highlight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.30762 6.36539) rotate(20.9611) scale(1.70402)">
+      <stop stop-color="white" stop-opacity=".8"/>
+      <stop offset=".95878" stop-color="#6C6C6C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light-back-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(13.7116 5.19174) rotate(46.0238) scale(7.83275 7.85046)">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#999" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light-back-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(7.10912 7.09966) rotate(35.9486) scale(12.7031 12.7319)">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#999" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light-back-c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3.84746 11.7626) rotate(68.2176) scale(8.87492 8.89499)">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#999" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light-front-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(4.72625 3.98208 -3.99262 4.71686 10.0301 2.33453)">
+      <stop offset=".0412204" stop-color="#6C6C6C"/>
+      <stop offset=".894584" stop-color="white"/>
+    </radialGradient>
+    <radialGradient id="light-front-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(2.2325 2.54125 -2.54618 2.22656 4.22718 12.1749)">
+      <stop offset=".0412204" stop-color="#6C6C6C"/>
+      <stop offset=".894584" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light-front-c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(4.36208 4.55208 -4.56175 4.35141 7.54427 7.10036)">
+      <stop offset=".0412204" stop-color="#6C6C6C"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="dark-tile" x1="600" y1="0" x2="600" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset=".198867" stop-color="white"/>
+      <stop offset="1" stop-color="#DEDEDE"/>
+    </linearGradient>
+    <linearGradient id="dark-corner-bottom-back" x1="774.5" y1="777" x2="1083.89" y2="1024.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C6C6C"/>
+      <stop offset="1" stop-color="white"/>
+    </linearGradient>
+    <radialGradient id="dark-corner-bottom-face" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(958.393 951.5) rotate(-133.155) scale(265.934)">
+      <stop stop-color="#6C6C6C"/>
+      <stop offset=".461489" stop-color="#8E8E8E" stop-opacity=".781916"/>
+      <stop offset=".95878" stop-color="white" stop-opacity=".06"/>
+    </radialGradient>
+    <linearGradient id="dark-corner-top-back" x1="237.5" y1="242" x2="546.893" y2="489.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C6C6C"/>
+      <stop offset="1" stop-color="white"/>
+    </linearGradient>
+    <radialGradient id="dark-corner-top-face" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(421.393 416.5) rotate(-133.155) scale(265.934)">
+      <stop stop-color="#6C6C6C"/>
+      <stop offset=".461489" stop-color="#8E8E8E" stop-opacity=".781916"/>
+      <stop offset=".95878" stop-color="white" stop-opacity=".06"/>
+    </radialGradient>
+    <radialGradient id="dark-back-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(801.393 262) rotate(45.5445) scale(334.83 335.587)">
+      <stop stop-color="#4C4C4C"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dark-back-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(429.393 448.5) rotate(41.0383) scale(675.487 677.014)">
+      <stop stop-color="#4C4C4C"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dark-back-c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(223.393 743) rotate(53.4594) scale(435.007 435.991)">
+      <stop stop-color="#4C4C4C"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dark-front-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(145.5 134.5 -134.824 145.184 261.393 782.5)">
+      <stop offset=".0412204" stop-color="white"/>
+      <stop offset=".894584" stop-color="#6C6C6C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dark-front-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(431.5 405.5 -406.459 430.547 480.393 474)">
+      <stop offset=".0412204" stop-color="white"/>
+      <stop offset="1" stop-color="#6C6C6C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dark-front-c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(746.393 241) rotate(39.2641) scale(318.378 506.302)">
+      <stop offset=".0412204" stop-color="white"/>
+      <stop offset="1" stop-color="#6C6C6C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <g class="favicon-light">
+    <rect x=".348633" y=".03125" width="19" height="19" rx="4.90833" fill="url(#light-tile)"/>
+
+    <rect x="12.5361" y="12.2031" width="2.92966" height="2.92966" rx=".765198" fill="#C7C7C7"/>
+    <rect x="12.5361" y="12.2031" width="2.92966" height="2.92966" rx=".765198" fill="url(#light-corner-bottom-back)"/>
+    <use href="#light-corner-bottom" fill="white"/>
+    <use href="#light-corner-bottom" fill="url(#light-corner-bottom-face)"/>
+    <use href="#light-corner-bottom" fill="url(#light-corner-bottom-highlight)"/>
+
+    <rect x="4.2334" y="3.92578" width="2.92966" height="2.92966" rx=".765198" fill="#C7C7C7"/>
+    <rect x="4.2334" y="3.92578" width="2.92966" height="2.92966" rx=".765198" fill="url(#light-corner-top-back)"/>
+    <use href="#light-corner-top" fill="white"/>
+    <use href="#light-corner-top" fill="url(#light-corner-top-face)"/>
+    <use href="#light-corner-top" fill="url(#light-corner-top-highlight)"/>
+
+    <use href="#light-mark-back" fill="url(#light-back-a)"/>
+    <use href="#light-mark-back" fill="url(#light-back-b)"/>
+    <use href="#light-mark-back" fill="url(#light-back-c)"/>
+    <use href="#light-mark-front" fill="#6C6C6C"/>
+    <use href="#light-mark-front" fill="url(#light-front-a)"/>
+    <use href="#light-mark-front" fill="url(#light-front-b)"/>
+    <use href="#light-mark-front" fill="url(#light-front-c)"/>
+  </g>
+
+  <g class="favicon-dark" transform="scale(.0166666667)">
+    <rect width="1200" height="1200" rx="310" fill="url(#dark-tile)"/>
+
+    <rect x="778.393" y="777" width="185.031" height="185.031" rx="48.3283" fill="#404040"/>
+    <rect x="778.393" y="777" width="185.031" height="185.031" rx="48.3283" fill="url(#dark-corner-bottom-back)"/>
+    <use href="#dark-corner-bottom" fill="white"/>
+    <use href="#dark-corner-bottom" fill="url(#dark-corner-bottom-face)"/>
+
+    <rect x="241.393" y="242" width="185.031" height="185.031" rx="48.3283" fill="#404040"/>
+    <rect x="241.393" y="242" width="185.031" height="185.031" rx="48.3283" fill="url(#dark-corner-top-back)"/>
+    <use href="#dark-corner-top" fill="white"/>
+    <use href="#dark-corner-top" fill="url(#dark-corner-top-face)"/>
+
+    <use href="#dark-mark-back" fill="white"/>
+    <use href="#dark-mark-back" fill="url(#dark-back-a)"/>
+    <use href="#dark-mark-back" fill="url(#dark-back-b)"/>
+    <use href="#dark-mark-back" fill="url(#dark-back-c)"/>
+    <use href="#dark-mark-front" fill="#6C6C6C"/>
+    <use href="#dark-mark-front" fill="url(#dark-front-a)"/>
+    <use href="#dark-mark-front" fill="url(#dark-front-b)"/>
+    <use href="#dark-mark-front" fill="url(#dark-front-c)"/>
+  </g>
+</svg>

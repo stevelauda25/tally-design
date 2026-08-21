@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { InlineCode } from "@/components/docs/inline-code";
 import { FoundationMediaCard } from "@/components/foundations/foundation-media-card";
 import { FoundationTable } from "@/components/foundations/foundation-table";
 import {
@@ -166,8 +167,15 @@ export default function GradientPage() {
         </h2>
         <p className="text-sm leading-5 font-normal text-text-secondary">
           This texture is sourced from the master gradient asset file (not a
-          live Figma gradient style) at node 2206:12975. Always reference the
-          exported image asset directly rather than reproducing it via code.
+          live Figma gradient style) at node{" "}
+          <a
+            href="https://www.figma.com/design/wGZ7iBXcVtfRhr5sxqGMAh/Rhino-Labs--July-2026----Tally-Inventory?node-id=2199-11879&t=6zlAzfu4d7Hx4hzm-11"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <InlineCode>2206:12975</InlineCode>
+          </a>{"."} Always reference the exported image asset directly rather
+          than reproducing it via code.
         </p>
       </section>
     </DocsShell>

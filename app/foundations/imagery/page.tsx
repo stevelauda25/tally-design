@@ -171,7 +171,13 @@ export default function ImageryPage() {
         <p className="text-sm leading-5 font-normal text-text-secondary">
           These are the source-of-truth imagery assets and guidance from the
           approved Figma Imagery frame at node{" "}
-          <InlineCode>2199:12360</InlineCode>.
+          <a
+            href="https://www.figma.com/design/wGZ7iBXcVtfRhr5sxqGMAh/Rhino-Labs--July-2026----Tally-Inventory?node-id=2199-12360&t=6zlAzfu4d7Hx4hzm-11"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <InlineCode>2199:12360</InlineCode>
+          </a>{"."}
         </p>
       </section>
     </DocsShell>

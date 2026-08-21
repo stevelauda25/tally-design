@@ -109,7 +109,15 @@ export default function ElevationPage() {
           Source of truth
         </h2>
         <p className="text-sm leading-5 font-normal text-text-secondary">
-          These are the source-of-truth Elevation values from Figma’s{" "}
+          These are the source-of-truth Elevation values from{" "}
+          <a
+            href="https://www.figma.com/design/wGZ7iBXcVtfRhr5sxqGMAh/Rhino-Labs--July-2026----Tally-Inventory?node-id=2188-10266&t=6zlAzfu4d7Hx4hzm-11"
+            target="_blank"
+            rel="noreferrer"
+            className="text-text-primary underline"
+          >
+            Figma’s
+          </a>{" "}
           <InlineCode>Shadow-001</InlineCode>,{" "}
           <InlineCode>Shadow-002</InlineCode>,{" "}
           <InlineCode>Shadow-003</InlineCode>, and{" "}

@@ -37,6 +37,7 @@ const crimsonPro = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tally-design-docs.vercel.app/"),
   title: {
     default: "Tally UI Design System",
     template: "%s | Tally UI Design System",

@@ -118,7 +118,14 @@ export default function RadiusPage() {
         </h2>
         <p className="text-sm leading-5 font-normal text-text-secondary">
           These are the source-of-truth Radius tokens from Figma’s{" "}
-          <InlineCode>Radius</InlineCode> variable collection.
+          <a
+            href="https://www.figma.com/design/wGZ7iBXcVtfRhr5sxqGMAh/Rhino-Labs--July-2026----Tally-Inventory?node-id=2155-6973&t=N5FHfuDLLEiZWDIo-1&view=variables"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <InlineCode>Radius</InlineCode>
+          </a>{" "}
+          variable collection.
         </p>
       </section>
     </DocsShell>
