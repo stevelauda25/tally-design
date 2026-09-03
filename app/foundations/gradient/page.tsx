@@ -173,7 +173,7 @@ export default function GradientPage() {
             target="_blank"
             rel="noreferrer"
           >
-            <InlineCode>2206:12975</InlineCode>
+            <InlineCode>2199:11879</InlineCode>
           </a>{"."} Always reference the exported image asset directly rather
           than reproducing it via code.
         </p>

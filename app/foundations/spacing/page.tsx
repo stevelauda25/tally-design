@@ -137,17 +137,16 @@ export default function SpacingPage() {
           Source of truth
         </h2>
         <p className="text-sm leading-5 font-normal text-text-secondary">
-          Findings summarized from the external collection (
-          <InlineCode>
-            design-system-testing-abdillah/foundation/foundation.md
-          </InlineCode>
-          {" and "}
-          <InlineCode>tokens.json</InlineCode>
-          {" → "}
-          <InlineCode>spacing.note</InlineCode>
-          {`). The JSON states `}
-          <InlineCode>{'"custom": false'}</InlineCode>
-          {" — there is no spacing data to render on this page; the scale above is Tailwind&apos;s documented default, shown for reference."}
+          Tally currently uses Tailwind&apos;s default 4px-based spacing scale,
+          where <InlineCode>1</InlineCode> = <InlineCode>0.25rem</InlineCode> ={" "}
+          <InlineCode>4px</InlineCode>. See the{" "}
+          <a
+            href="https://v2.tailwindcss.com/docs/customizing-spacing#default-spacing-scale"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Tailwind default spacing scale
+          </a>{"."} No separate local custom Tally spacing-token source is defined.
         </p>
       </section>
     </DocsShell>
